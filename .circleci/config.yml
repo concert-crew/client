@@ -39,7 +39,6 @@ jobs: # a collection of steps
       - run:
           name: Run rspec in parallel
           command:
-            bundle install
             bundle exec rspec
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
