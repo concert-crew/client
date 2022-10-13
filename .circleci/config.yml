@@ -23,12 +23,6 @@ jobs: # a collection of steps
       - node/install:
           install-yarn: true
           node-version: '16.13'
-      # - run:
-      #     # name: Force Bundler Version
-      #     # command: |
-      #     #   echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-      #     #   source $BASH_ENV
-      #     #   gem install bundler
       - run:
           name: Force Bundler Version
           command: |
@@ -45,10 +39,6 @@ jobs: # a collection of steps
       - run:
           name: Run rspec in parallel
           command: 
-            sudo gem update --system
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-            source $BASH_ENV
-            sudo gem install bundler
             bundle exec rspec
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
