@@ -35,7 +35,7 @@ jobs: # a collection of steps
           name: Bundle Install
           command: 
             bundle install
-            bundle update
+            bundle update --bundler
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
