@@ -3,8 +3,22 @@ orbs:
    ruby: circleci/ruby@1.1.0
    node: circleci/node@5.0.0 # Needed for javascript runtime
   #  heroku: circleci/heroku@1.0.1 # Use the Heroku orb in your config
-jobs: # a collection of steps
-  build-and-test: # runs not using Workflows must have a `build` job as entry point
+jobs:
+  build:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+      docker:
+        - image: cimg/ruby:2.7.4-node
+          auth:
+              username: mydockerhub-user
+              password: $DOCKERHUB_PASSWORD
+      steps:
+        - checkout # pull down our git code.
+        - ruby/install-deps # use the ruby orb to install dependencies
+        # - node/install-packages:
+        #     cache-key: yarn.lock
+        #     pkg-manager: yarn
+  test:
     docker:
       - image: cimg/ruby:2.7.4-node
         auth:
@@ -18,54 +32,39 @@ jobs: # a collection of steps
             POSTGRES_USER: server
             POSTGRES_DB: server_test
             POSTGRES_PASSWORD: ""
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     environment:
-      BUNDLE_JOBS: "3"
-      BUNDLE_RETRY: "3"
-      PGHOST: 127.0.0.1
-      PGUSER: server
-      PGPASSWORD: ""
-      RAILS_ENV: test
+        BUNDLE_JOBS: "3"
+        BUNDLE_RETRY: "3"
+        PGHOST: 127.0.0.1
+        PGUSER: server
+        PGPASSWORD: ""
+        RAILS_ENV: test
+        
+    steps:
+        - checkout
+        - ruby/install-deps
+        # - node/install-packages:
+        #     cache-key: yarn.lock
+        #     pkg-manager: yarn
+        - run:
+            name: Wait for DB
+            command: dockerize -wait tcp://localhost:5432 -timeout 1m
+        - run:
+            name: Database setup
+            command: bundle exec rails db:schema:load --trace
+        # Run rspec in parallel
+        - ruby/rspec-test
 
-    steps: # a collection of executable commands
-      - checkout # special step to check out source code to working directory
-      # Which version of bundler?
-      - node/install:
-          install-yarn: true
-          node-version: '16.13'
-      - run:
-          name: Force Bundler Version
-          command: |
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-            source $BASH_ENV
-            gem install bundler
-      - run:
-          name: Bundle Install
-          command: bundle install
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run:
-          name: Database setup
-          command: bin/rails db:{create,migrate} --trace
-      - run:
-          name: Run rspec in parallel
-          command: bundle exec rspec
-      # Save test results for timing analysis
-      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: test_results
-      # See https://circleci.com/docs/2.0/deployment-integrations/ for example deploy configs
+
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  build-test-deploy:
+  version: 2
+  build_and_test:
     jobs:
-      - build-and-test
-      # - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
-      #     requires:
-      #       - build-and-test
-      #     post-steps:
-      #       - run:
-      #           name: migrate
-      #           command: heroku run -a $HEROKU_APP_NAME rails db:migrate
-      #     filters:
-      #       branches:
-      #         only:
-      #           - main
+      - build
+      - test:
+          requires:
+            - build
