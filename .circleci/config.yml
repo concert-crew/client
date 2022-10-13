@@ -33,7 +33,8 @@ jobs: # a collection of steps
             gem install bundler
       - run:
           name: Bundle Install
-          command: 
+          command:
+            gem install bundler
             bundle install
       - run:
           name: Wait for DB
