@@ -1,6 +1,6 @@
 version: 2.1 # use CircleCI 2.1
 orbs:
-   ruby: circleci/ruby@1.1.0
+   ruby: circleci/ruby@1.0.4
    node: circleci/node@5.0.0 # Needed for javascript runtime
   #  heroku: circleci/heroku@1.0.1 # Use the Heroku orb in your config
 jobs:
@@ -15,9 +15,9 @@ jobs:
       steps:
         - checkout # pull down our git code.
         - ruby/install-deps # use the ruby orb to install dependencies
-        - node/install-packages:
-            cache-key: yarn.lock
-            pkg-manager: yarn
+        # - node/install-packages:
+        #     cache-key: yarn.lock
+        #     pkg-manager: yarn
   test:
     docker:
       - image: cimg/ruby:2.7.4-node
