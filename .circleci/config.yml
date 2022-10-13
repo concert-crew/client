@@ -15,9 +15,9 @@ jobs:
       steps:
         - checkout # pull down our git code.
         - ruby/install-deps # use the ruby orb to install dependencies
-        # - node/install-packages:
-        #     cache-key: yarn.lock
-        #     pkg-manager: yarn
+        - node/install-packages:
+            cache-key: yarn.lock
+            pkg-manager: yarn
   test:
     docker:
       - image: cimg/ruby:2.7.4-node
