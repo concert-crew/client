@@ -13,10 +13,10 @@ jobs: # a collection of steps
           PGHOST: 127.0.0.1
           PGUSER: postgres
           RAILS_ENV: test
-      # - image: circleci/postgres:11 # database image
-      #   environment: # environment variables for database, it is kind of obvious but it is important that they match with your test config in database.yml
-      #     POSTGRES_USER: postgres
-      #     POSTGRES_DB: <Insert the name of your testing database, for example, cool_new_app_test>
+      - image: circleci/postgres:11 # database image
+        environment: # environment variables for database, it is kind of obvious but it is important that they match with your test config in database.yml
+          POSTGRES_USER: postgres
+          POSTGRES_DB: <Insert the name of your testing database, for example, cool_new_app_test>
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
       # Which version of bundler?
@@ -26,20 +26,21 @@ jobs: # a collection of steps
       - run:
           name: Force Bundler Version
           command: |
-            sudo gem update --system
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
-            sudo gem install bundler
-      # - run:
-      #     name: Wait for DB
-      #     command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      # - run:
-      #     name: Database setup
-      #     command: bin/rails db:{create,migrate} --trace
+            gem install bundler
+      - run:
+          name: Bundle Install
+          command: bundle install
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bin/rails db:{create,migrate} --trace
       - run:
           name: Run rspec in parallel
-          command:
-            bundle exec rspec
+          command: bundle exec rspec
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test_results
@@ -48,15 +49,14 @@ workflows:
   build-test-deploy:
     jobs:
       - build-and-test
-      # - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
-      #     requires:
-      #       - build-and-test
-          # post-steps:
-          #   - run:
-          #       name: migrate
-          #       command: heroku run -a $HEROKU_APP_NAME rails db:migrate
-          # filters:
-          #   branches:
-          #     only:
-          #       - main
-          
+      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+          requires:
+            - build-and-test
+          post-steps:
+            - run:
+                name: migrate
+                command: heroku run -a $HEROKU_APP_NAME rails db:migrate
+          filters:
+            branches:
+              only:
+                - main
