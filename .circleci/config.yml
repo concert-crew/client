@@ -23,19 +23,19 @@ jobs: # a collection of steps
       - node/install:
           install-yarn: true
           node-version: '16.13'
+      # - run:
+      #     # name: Force Bundler Version
+      #     # command: |
+      #     #   echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+      #     #   source $BASH_ENV
+      #     #   gem install bundler
       - run:
           name: Force Bundler Version
           command: |
+            sudo gem update --system
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
-            gem install bundler
-      # - run:
-      #     name: Force Bundler Version
-      #     command: |
-      #       sudo gem update --system
-      #       echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-      #       source $BASH_ENV
-      #       gem install bundler
+            sudo gem install bundler
       # - run:
       #     name: Wait for DB
       #     command: dockerize -wait tcp://localhost:5432 -timeout 1m
