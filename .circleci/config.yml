@@ -33,7 +33,9 @@ jobs: # a collection of steps
             gem install bundler
       - run:
           name: Bundle Install
-          command: bundle install
+          command: 
+            bundle install
+            bundle update
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
