@@ -36,12 +36,12 @@ jobs: # a collection of steps
       #       echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
       #       source $BASH_ENV
       #       gem install bundler
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run:
-          name: Database setup
-          command: bin/rails db:{create,migrate} --trace
+      # - run:
+      #     name: Wait for DB
+      #     command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      # - run:
+      #     name: Database setup
+      #     command: bin/rails db:{create,migrate} --trace
       - run:
           name: Run rspec in parallel
           command: bundle exec rspec
@@ -53,13 +53,13 @@ workflows:
   build-test-deploy:
     jobs:
       - build-and-test
-      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
-          requires:
-            - build-and-test
-          post-steps:
-            - run:
-                name: migrate
-                command: heroku run -a $HEROKU_APP_NAME rails db:migrate
+      # - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+      #     requires:
+      #       - build-and-test
+          # post-steps:
+          #   - run:
+          #       name: migrate
+          #       command: heroku run -a $HEROKU_APP_NAME rails db:migrate
           filters:
             branches:
               only:
