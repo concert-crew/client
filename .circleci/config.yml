@@ -14,8 +14,7 @@ jobs:
               password: $DOCKERHUB_PASSWORD
       steps:
         - checkout # pull down our git code.
-        - ruby/install-deps:
-            path: /home/circleci/.gem/ruby/2.7.4-node# use the ruby orb to install dependencies
+        - ruby/install-deps # use the ruby orb to install dependencies
         # - node/install-packages:
         #     cache-key: yarn.lock
         #     pkg-manager: yarn
