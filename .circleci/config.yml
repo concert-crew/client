@@ -1,6 +1,6 @@
 version: 2.1 # use CircleCI 2.1
 orbs:
-   ruby: circleci/ruby@1.0.4
+   ruby: circleci/ruby@1.1.0
    node: circleci/node@5.0.0 # Needed for javascript runtime
   #  heroku: circleci/heroku@1.0.1 # Use the Heroku orb in your config
 jobs:
