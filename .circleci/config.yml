@@ -1,50 +1,8 @@
-# version: 2.1
-
-# orbs:
-#   node: circleci/node@4.7
-#   heroku: circleci/heroku@1.2.6 # Use the Heroku orb in your config
-
-# jobs:
-#   build_and_test:
-#     executor: node/default
-#     steps:
-#       - checkout
-#       - node/install-packages:
-#           pkg-manager: npm
-#       - run:
-#           name: Run tests
-#           command: npm test 
-#       - run : 
-#           name : Run build
-#           command: npm run build 
-#       - persist_to_workspace:
-#           root: ~/project
-#           paths:
-#             - .
-
-#             deploy: concert-crew
-#     executor: heroku/default
-#     steps:
-#       - attach_workspace:
-#           at: ~/project
-#       - heroku/deploy-via-git:
-#           force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
-#           workflows:
-#   test_my_app:
-#     jobs:
-#       - build_and_test
-#       - deploy:
-#           requires:
-#             - build_and_test # only deploy if the build_and_test job has completed
-#           filters:
-#             branches:
-#               only: main # only deploy when on main
-
 version: 2.1
 
 orbs:
   node: circleci/node@4.7
-  heroku: circleci/heroku@1.2.6 # Use the Heroku orb in your config
+  heroku: circleci/heroku@1.2.6
 
 jobs:
   build_and_test:
@@ -63,13 +21,13 @@ jobs:
           root: ~/project
           paths:
             - .
-  deploy: # this can be any name you choose
+  deploy:
     executor: heroku/default
     steps:
       - attach_workspace:
           at: ~/project
       - heroku/deploy-via-git:
-          force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
+          force: true
 
 workflows:
   test_my_app:
@@ -77,7 +35,7 @@ workflows:
       - build_and_test
       - deploy:
           requires:
-            - build_and_test # only deploy if the build_and_test job has completed
+            - build_and_test
           filters:
             branches:
-              only: main # only deploy when on main
+              only: main
