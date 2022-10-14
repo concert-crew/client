@@ -1,6 +1,6 @@
 import React from 'react'
 import "./App.css"
-
+import Login from '../Login/Login'
 
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <main className='App'>
-      
+      <Login />
     </main>
   )
 }
