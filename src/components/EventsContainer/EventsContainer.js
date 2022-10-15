@@ -1,5 +1,6 @@
 import React from "react";
 import EventCard from "../EventCard/EventCard";
+import './EventsContainer.css'
 
 const EventsContainer = ({ events }) => {
 
@@ -12,7 +13,7 @@ const EventsContainer = ({ events }) => {
       image={event.images[0].url}
     />
   ));
-  return <div>{eventCards}</div>;
+  return <div className="events-container">{eventCards}</div>;
 };
 
 export default EventsContainer;

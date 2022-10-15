@@ -1,0 +1,13 @@
+.header {
+    height: 115px;
+    position: sticky; top: 0;
+    background: rgba(0, 0, 0, .6);
+    font-family: 'Nova Square', cursive;
+    font-size: 26px;
+    display: flex;
+}
+
+h1 {
+    font-weight: 200;
+    margin: 3vh 4vw;
+}
