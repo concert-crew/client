@@ -1,22 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './EventCard.css'
 
-const EventCard = ({name, date, venue, image}) => {
-    console.log({ name, date, venue, image });
+const EventCard = ({name, date, venue, image, id}) => {
     
   return (
-    <div className="event-card"
+    <div
+      className="event-card"
       style={{
         backgroundImage: `url(${image})`,
         backgroundPosition: "top",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "300px 190px"}}>
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "300px 190px",
+      }}
+    >
       <p className="card-text">
-        <h3>{name.toUpperCase()}</h3>
-        {date}<br></br>
+        <b>{name.toUpperCase()}</b>
+        {date}
+        <br></br>
         {venue}
       </p>
-      <button className="view-details-button">VIEW DETAILS</button>
+      <Link to={`/event/${id}`}>
+        <button className="view-details-button">VIEW DETAILS</button>
+      </Link>
     </div>
   );
 };
