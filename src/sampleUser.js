@@ -43,7 +43,29 @@ export const Abby = {
           },
         ],
       },
-      attendees: ["Mayu", "Chantal"],
+      attendees: [
+        {
+          name: "Mayu",
+          image:
+            "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png",
+        },
+        {
+          name: "Chantal",
+          image:
+            "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png",
+        },
+      ],
+      comments: [
+        {
+          userId: 2,
+          comId: "017",
+          fullName: "Chantal",
+          text: "I'll see you there",
+          avatarUrl:
+            "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png",
+          replies: [],
+        },
+      ],
     },
 
     {
@@ -86,7 +108,34 @@ export const Abby = {
           },
         ],
       },
-      attendees: ["John", "Josh", "Shirley"],
+      attendees: [
+        {
+          name: "John",
+          image:
+            "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png",
+        },
+        {
+          name: "Shirley",
+          image:
+            "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png",
+        },
+        {
+          name: "Josh",
+          image:
+            "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png",
+        },
+      ],
+      comments: [
+        {
+          userId: 2,
+          comId: "017",
+          fullName: "Chantal",
+          text: "I'll see you there",
+          avatarUrl:
+            "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png",
+          replies: [],
+        },
+      ],
     },
 
     {
@@ -129,7 +178,24 @@ export const Abby = {
           },
         ],
       },
-      attendees: ["Chantal"],
+      attendees: [
+        {
+          name: "Chantal",
+          image:
+            "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png",
+        },
+      ],
+      comments: [
+        {
+          userId: 2,
+          comId: "017",
+          fullName: "Chantal",
+          text: "I'll see you there",
+          avatarUrl:
+            "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png",
+          replies: [],
+        },
+      ],
     },
   ],
 };

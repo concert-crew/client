@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Link} from "react-router-dom";
+import { Abby } from "../../sampleUser";
 
 
 
@@ -12,7 +13,7 @@ const Login = ({ setCurrentUser }) => {
 
   const handleClick = (e) => {
     // e.preventDefault();
-    setCurrentUser(login);
+    setCurrentUser(Abby);
   };
   // This is where we will make a query
   // as we change state this will trigger a fetch call

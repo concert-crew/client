@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import "./App.css";
 import Login from "../Login/Login";
-import Header from "../Header/Header"
+import Header from "../Header/Header";
 import { Route, Switch } from "react-router-dom";
 import { Abby } from "../../sampleUser";
 import UserDashboard from "../UserDashboard/UserDashboard";
+import EventDetails from "../../EventDetails/EventDetails";
+import FriendsDashboard from "../FriendsDashboard/FriendsDashboard";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState("");
-console.log(currentUser);
+
 
   return (
     <main className="App">
-      <Header />
+      <Header user={currentUser} signOut={setCurrentUser} />
       <Switch>
+
+
+
+
         <Route
           exact
           path="/:user"
@@ -23,6 +29,29 @@ console.log(currentUser);
               user={Abby}
             />
           )}
+        />
+
+
+
+        <Route
+          exact
+          path="/:user/friends"
+          render={() => <FriendsDashboard events={Abby.events}/>}
+        />
+
+
+
+
+
+        <Route
+          exact
+          path="/event/:id"
+          render={({ match }) => {
+            const found = currentUser.events.find(
+              (event) => event.id === match.params.id
+            );
+            return <EventDetails event={found} user={currentUser} />;
+          }}
         />
         <Route
           exact
