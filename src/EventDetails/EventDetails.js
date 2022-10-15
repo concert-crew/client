@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import DefaultComponent from "../components/CommentSection/CommentSection"
 import { CommentSection } from "react-comments-section";
 import "react-comments-section/dist/index.css";
 
@@ -15,6 +14,7 @@ const EventDetails = ({ event, user }) => {
 
   return (
     <div>
+
       <img src={event.images[0].url} alt={event.name} />
       <h3>{event.name}</h3>
       <a href={event.url} target="_blank">

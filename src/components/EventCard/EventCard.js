@@ -22,6 +22,7 @@ const EventCard = ({name, date, venue, image, id}) => {
       </p>
       <Link to={`/event/${id}`}>
         <button className="view-details-button">VIEW DETAILS</button>
+        {/* May need to add an onClick fxn that querys event details with a event id param */}
       </Link>
     </div>
   );
