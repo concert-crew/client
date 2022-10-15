@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Login from "../Login/Login";
+import Header from "../Header/Header"
 import { Route, Switch } from "react-router-dom";
 import { Abby } from "../../sampleUser";
 import UserDashboard from "../UserDashboard/UserDashboard";
@@ -11,6 +12,7 @@ console.log(currentUser);
 
   return (
     <main className="App">
+      <Header />
       <Switch>
         <Route
           exact

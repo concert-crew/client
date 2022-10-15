@@ -20,7 +20,8 @@ const Login = ({ setCurrentUser }) => {
   //backend needs a string with 5 diff endpoint with each users' data
 
   return (
-    <div>
+    <div className="login-form">
+      <h2>WELCOME! Please login</h2>
       <select
      
         className="login-selection"
@@ -37,7 +38,7 @@ const Login = ({ setCurrentUser }) => {
         <option value="Shirley">Shirley</option>
       </select>
       <Link to={`/${login}`}>
-        <button onClick={(e) => handleClick(e)}>Log in</button>
+        <button className="login-button" onClick={(e) => handleClick(e)}>LOG IN</button>
       </Link>
     </div>
   );
