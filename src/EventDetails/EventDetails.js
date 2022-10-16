@@ -13,8 +13,7 @@ const EventDetails = ({ event, user }) => {
   ));
 
   return (
-    <div>
-
+    <div className="event-details-container">
       <img src={event.images[0].url} alt={event.name} />
       <h3>{event.name}</h3>
       <a href={event.url} target="_blank">

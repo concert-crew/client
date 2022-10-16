@@ -12,9 +12,9 @@
         background-attachment: fixed;
         font-family: 'Inter', sans-serif;
         font-weight:100;
-        overflow: none;
+        overflow: hidden;
         scroll-behavior: none;
-        height: 100vh;
+        /* height: 100vh; */
         padding: 3rem;
     }
     
