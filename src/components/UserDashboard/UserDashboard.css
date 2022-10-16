@@ -1,4 +1,34 @@
-.upcoming-shows-title {
+
+
+.upcoming-shows-title-wrapper {
     display: flex;
-    margin-left: 8vw;
+    height: 15%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-left: 15rem;
+    margin-top: 3rem;
+    margin-bottom: -3rem;
+}
+
+.upcoming-shows-title{
+    display: flex;
+    margin-left: 4rem;
+}
+
+
+
+.user-dash{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: none;
+    position: sticky; bottom: 0;
+    z-index: 1;
+}
+
+.dash-btn{
+    margin-bottom: 2rem;
 }

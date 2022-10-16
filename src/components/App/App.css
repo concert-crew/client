@@ -1,8 +1,15 @@
 .App {
   text-align: center;
+  background-image: url('../../images/bill-hamway-24Uv4wRJ95A-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: white;
   font-family: 'Inter', sans-serif;
   font-weight:100;
+  overflow: none;
+  scroll-behavior: none;
+  height: 100vh;
 }
 
 button {
@@ -33,3 +40,4 @@ a:-webkit-any-link {
   color: inherit;
   cursor: pointer;
 }
+

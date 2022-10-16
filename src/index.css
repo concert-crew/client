@@ -2,9 +2,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./images/bill-hamway-24Uv4wRJ95A-unsplash.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-color: rgb(29, 4, 59);
+  overflow: hidden;
 }
 

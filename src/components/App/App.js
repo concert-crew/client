@@ -8,18 +8,15 @@ import UserDashboard from "../UserDashboard/UserDashboard";
 import EventDetails from "../../EventDetails/EventDetails";
 import FriendsDashboard from "../FriendsDashboard/FriendsDashboard";
 
+
 const App = () => {
   const [currentUser, setCurrentUser] = useState("");
-
+  
 
   return (
     <main className="App">
       <Header user={currentUser} signOut={setCurrentUser} />
       <Switch>
-
-
-
-
         <Route
           exact
           path="/:user"
@@ -31,16 +28,11 @@ const App = () => {
           )}
         />
 
-
-
         <Route
           exact
           path="/:user/friends"
           render={() => <FriendsDashboard events={Abby.events}/>}
         />
-
-
-
 
 
         <Route
@@ -56,8 +48,12 @@ const App = () => {
         <Route
           exact
           path="/"
-          render={() => <Login setCurrentUser={setCurrentUser} />}
+          render={() => 
+          <Login setCurrentUser={setCurrentUser} />  
+          }
+          
         />
+        
       </Switch>
     </main>
   );
