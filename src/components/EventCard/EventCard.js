@@ -1,13 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import './EventCard.css'
-// import { gsap } from "gsap"
-import UserDashboard from "../UserDashboard/UserDashboard";
-import {gsap, Power0, Power1, Power2, TweenLite, TimelineMax, Linear, Back, Sine } from 'gsap/all';
+import {gsap, TimelineMax } from 'gsap/all';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PixiPlugin } from "gsap/PixiPlugin.js";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
-// import {TimelineMax} from "gsap/TimelineMax.js"
+
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -17,14 +15,6 @@ gsap.registerPlugin(TimelineMax);
 const EventCard = ({name, date, venue, image, id}) => {
     
   const boxRef = useRef(null)
-
-  // gsap.set('.event-card', {
-  //   xPercent: 0,
-  //   yPercent: 0,
-  //   autoAlpha: 1,
-  //   transformOrigin: "50% 50%"
-  // });
-
 
   useEffect(() => {
     gsap.to(".event-card", {

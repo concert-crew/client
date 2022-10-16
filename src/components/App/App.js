@@ -7,6 +7,8 @@ import { Abby } from "../../sampleUser";
 import UserDashboard from "../UserDashboard/UserDashboard";
 import EventDetails from "../../EventDetails/EventDetails";
 import FriendsDashboard from "../FriendsDashboard/FriendsDashboard";
+import Status404 from "../../errorHandling/Status404";
+import InternalServerError from "../../errorHandling/InternalServerError";
 
 
 const App = () => {
@@ -27,14 +29,11 @@ const App = () => {
             />
           )}
         />
-
         <Route
           exact
           path="/:user/friends"
           render={() => <FriendsDashboard events={Abby.events}/>}
         />
-
-
         <Route
           exact
           path="/event/:id"
@@ -44,16 +43,16 @@ const App = () => {
             );
             return <EventDetails event={found} user={currentUser} />;
           }}
-        />
+        />  
         <Route
           exact
           path="/"
           render={() => 
           <Login setCurrentUser={setCurrentUser} />  
-          }
-          
+          } 
         />
-        
+        <Route component={Status404} />
+        <Route component={InternalServerError} />
       </Switch>
     </main>
   );
