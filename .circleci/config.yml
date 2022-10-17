@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
   heroku: circleci/heroku@1.2.6
-
+cypress: cypress-io/cypress@2.2.0
 
 jobs:
   build_and_test:
