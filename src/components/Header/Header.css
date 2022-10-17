@@ -44,5 +44,9 @@ h1 {
 }
 
 .view-friends-btn{
-    width: 3rem;
+    width: 2.5rem;
+}
+
+.nav-bar-text {
+    font-size: 12px;
 }

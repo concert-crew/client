@@ -2,11 +2,33 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Login.css";
 import { Link} from "react-router-dom";
 import { Abby } from "../../sampleUser";
+// import { useQuery, gql } from "@apollo/client";
+
+// const GET_USER = gql`
+//   query {
+//     users {
+//       id
+//       name
+//       image
+//       events {
+//         id
+//         artistName
+//         venueName
+//         venueLocation
+//         date
+//       }
+//     }
+//   }`
 
 
 const Login = ({ setCurrentUser }) => {
  
   const [login, setLogin] = useState("");
+  // const { error, data, loading } = useQuery(GET_USER)
+  
+  // console.log(error, data, loading)
+  // if (loading) return <div>Loading...</div>
+  // if (error) return <div>Something went wrong...</div>
 
 
   const handleClick = (e) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import './EventCard.css'
-import {gsap, TimelineMax } from 'gsap/all';
+import { gsap } from 'gsap/all';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PixiPlugin } from "gsap/PixiPlugin.js";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
@@ -10,11 +10,12 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(PixiPlugin, MotionPathPlugin );
-gsap.registerPlugin(TimelineMax);
 
 const EventCard = ({name, date, venue, image, id}) => {
     
   const boxRef = useRef(null)
+
+  const [year, month, day] = date.split("-");
 
   useEffect(() => {
     gsap.to(".event-card", {
@@ -40,7 +41,9 @@ const EventCard = ({name, date, venue, image, id}) => {
      
       <p className="card-text">
         <b>{name.toUpperCase()}</b>
-        {date}
+        <br></br>
+        <br></br>
+        {`${month}/${day}/${year}`}
         <br></br>
         {venue}
       </p>
