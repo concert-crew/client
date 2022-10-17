@@ -1,4 +1,4 @@
-.login-form{
+ .login-form{
     background: rgba(0, 0, 0, .6);
     margin: 10vh 20vw;
     padding: 8vh 4vw;
@@ -25,4 +25,6 @@ select {
     border: none;
     margin-bottom: 2vh;
     font-size: 20px;
-}
+} 
+
+

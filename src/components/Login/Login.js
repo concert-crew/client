@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Login.css";
 import { Link} from "react-router-dom";
 import { Abby } from "../../sampleUser";
 
 
-
-
 const Login = ({ setCurrentUser }) => {
-
-
+ 
   const [login, setLogin] = useState("");
+
 
   const handleClick = (e) => {
     // e.preventDefault();
     setCurrentUser(Abby);
   };
+
   // This is where we will make a query
   // as we change state this will trigger a fetch call
   // fetch call will look into the users and pass in the value of the username
@@ -29,7 +28,7 @@ const Login = ({ setCurrentUser }) => {
         value={login}
         onChange={(e) => setLogin(e.target.value)}
       >
-        <option disabled >
+        <option value="" disabled selected>
           Select Your User
         </option>
         <option value="Abby">Abby</option>
@@ -43,6 +42,7 @@ const Login = ({ setCurrentUser }) => {
       </Link>
     </div>
   );
+
 };
 
 export default Login;

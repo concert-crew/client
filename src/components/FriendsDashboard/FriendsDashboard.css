@@ -1,0 +1,26 @@
+.friends-dash{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: none;
+    position: sticky; bottom: 0;
+    z-index: 1;
+}
+
+.friends-shows-title-wrapper {
+    display: flex;
+    height: 15%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-left: 15rem;
+    margin-top: 3rem;
+    margin-bottom: -3rem;
+}
+
+.friends-shows-title{
+    display: flex;
+    margin-left: 4rem;
+}

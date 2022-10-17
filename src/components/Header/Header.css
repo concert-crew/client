@@ -1,13 +1,48 @@
 .header {
-    height: 115px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 110px;
     position: sticky; top: 0;
     background: rgba(0, 0, 0, .6);
     font-family: 'Nova Square', cursive;
     font-size: 26px;
     display: flex;
+    overflow: none;
+    z-index: 3;
+}
+
+.header-login-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    /* margin-right: 2rem; */
+}
+
+.h1-wrapper{
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
 
 h1 {
+
     font-weight: 200;
     margin: 3vh 4vw;
+}
+
+.logout-btn,
+.view-friends-btn{
+    display: flex;
+    width: 2rem;
+    margin-right: 2rem;
+    z-index: 3;
+}
+
+.view-friends-btn{
+    width: 3rem;
 }
