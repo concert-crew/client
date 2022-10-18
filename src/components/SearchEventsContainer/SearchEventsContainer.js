@@ -3,12 +3,11 @@ import SearchForm from '../SearchForm/SearchForm'
 // import { Link } from 'react-router-dom'
 import "./SearchEventsContainer.css"
 
-const SearchEventsContainer = ({setSearchInput}) => {
+const SearchEventsContainer = ({ setSearchedEvents }) => {
 
-console.log(`@@@@@`, {setSearchInput})
   return (
     <div className='search-events-container'>
-       <SearchForm setSearchInput={setSearchInput}/>
+       <SearchForm setSearchedEvents={setSearchedEvents}/>
     </div>
   )
 }

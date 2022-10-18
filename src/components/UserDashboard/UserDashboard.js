@@ -8,26 +8,25 @@ import { useUser } from "../../hooks/useUser";
 
 
 
-const UserDashboard = () => {
+const UserDashboard = ({setCurrentUser}) => {
   // const [animate, setAnimate] = useState(false)
   const { user } = useParams();
-  console.log(user);
 
   const { data, error, loading } = useUser(user);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>User not found.</div>;
-  console.log(data, error, loading);
+  setCurrentUser(data.user)
 
   return (
     <div className="user-dash">
-      {/* <div className="upcoming-shows-title-wrapper">
-      <h2 className="upcoming-shows-title">YOUR UPCOMING SHOWS</h2>
+      <div className="upcoming-shows-title-wrapper">
+      <h2 className="upcoming-shows-title">{data.user.name.toUpperCase()}'S UPCOMING SHOWS</h2>
       </div>
-      <EventsContainer className ="events-container" events={data.events} />/
+      <EventsContainer className ="events-container" events={data.user.events} />
       <Link to="/search" >
         <button className="dash-btn">ADD AN UPCOMING SHOW</button>
-      </Link> */}
+      </Link>
     </div>
   );
 };
