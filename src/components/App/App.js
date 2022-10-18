@@ -9,16 +9,25 @@ import EventDetails from "../../EventDetails/EventDetails";
 import FriendsDashboard from "../FriendsDashboard/FriendsDashboard";
 import Status404 from "../../errorHandling/Status404";
 import InternalServerError from "../../errorHandling/InternalServerError";
+import SearchEventsContainer from "../SearchEventsContainer/SearchEventsContainer";
 
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState("");
-  
+  const [searchInput, setSearchInput] = useState("");
+
+
+
 
   return (
     <main className="App">
       <Header user={currentUser} signOut={setCurrentUser} />
       <Switch>
+        <Route
+         exact
+         path="/search"
+         render={() => <SearchEventsContainer setSearchInput={setSearchInput} />}
+       />
         <Route
           exact
           path="/:user"
