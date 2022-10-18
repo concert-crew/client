@@ -4,9 +4,22 @@ const GET_USER = gql`
   query GetUser($name: String!) {
     user(name: $name) {
       name
+      id
+      image
       events {
+        id
         name
+        ticketmasterId
+        buyTicketsUrl
+        image
         date
+        time
+        venueName
+        city
+        state
+        address
+        longitude
+        latitude
       }
     }
   }

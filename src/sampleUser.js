@@ -6,43 +6,16 @@ export const Abby = {
     {
       name: "Bonobo",
       id: "Z7r9jZ1AdogZP",
-      url: "https://www.ticketmaster.com/event/Z7r9jZ1AdogZP",
-      images: [
-        {
-          ratio: "4_3",
-          url: "https://s1.ticketm.net/dbimages/174539a.jpg",
-          width: 305,
-          height: 225,
-          fallback: false,
-        },
-      ],
-      dates: {
-        start: {
-          localDate: "2022-10-22",
-          localTime: "19:30:00",
-          dateTime: "2022-10-23T02:30:00Z",
-        },
-      },
-      _embedded: {
-        venues: [
-          {
-            name: "Greek Theatre-Los Angeles",
-            city: {
-              name: "Los Angeles",
-            },
-            state: {
-              stateCode: "CA",
-            },
-            address: {
-              line1: "2700 N. Vermont Ave.",
-            },
-            location: {
-              longitude: "-118.292",
-              latitude: "34.125198",
-            },
-          },
-        ],
-      },
+      buyTicketsUrl: "https://www.ticketmaster.com/event/Z7r9jZ1AdogZP",
+      image: "https://s1.ticketm.net/dam/a/092/c590b21f-9adf-4f96-8a2d-2bb8f216d092_1701661_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+      date: "2022-10-22", 
+      time: "19:30:00",
+      venueName: "Greek Theatre",
+      city: "Los Angeles",
+      state: "CA",
+      address: "2700 N. Vermont Ave.",
+      longitude: "-118.292",
+      latitude: "34.125198",
       attendees: [
         {
           name: "Mayu",
@@ -67,47 +40,21 @@ export const Abby = {
         },
       ],
     },
-
+  
     {
-      name: "FKJ",
-      id: "G5viZ95XrZFL_",
-      url: "https://www.ticketmaster.com/fkj-new-orleans-louisiana-10-18-2022/event/1B005CBF9E0087D9",
-      images: [
-        {
-          ratio: "16_9",
-          url: "https://s1.ticketm.net/dam/a/092/c590b21f-9adf-4f96-8a2d-2bb8f216d092_1701661_RECOMENDATION_16_9.jpg",
-          width: 100,
-          height: 56,
-          fallback: false,
-        },
-      ],
-      dates: {
-        start: {
-          localDate: "2022-10-18",
-          localTime: "20:00:00",
-          dateTime: "2022-10-19T01:00:00Z",
-        },
-      },
-      _embedded: {
-        venues: [
-          {
-            name: "Orpheum Theater",
-            city: {
-              name: "New Orleans",
-            },
-            state: {
-              stateCode: "LA",
-            },
-            address: {
-              line1: "129 Roosevelt Way",
-            },
-            location: {
-              longitude: "-90.0758361",
-              latitude: "29.9581394",
-            },
-          },
-        ],
-      },
+
+        name: "Liquid Stranger",
+        id: "G5viZ92D6QfDz",
+        buyTicketsUrl: "https://www.ticketmaster.com/liquid-stranger-new-orleans-louisiana-10-28-2022/event/1B005CFEC7694EF8",
+        image: "https://s1.ticketm.net/dam/a/0c3/06fff564-f412-4a48-bf8a-9c24633bc0c3_1754111_TABLET_LANDSCAPE_3_2.jpg",
+        date: "2022-10-28", 
+        time: "20:00:00",
+        venueName: "Mission",
+        city: "Denver",
+        state: "CO",
+        address: "1000 Brighton Blvd.",
+        longitude: "39.776260019308395",
+        latitude: "-104.96915584167645",
       attendees: [
         {
           name: "John",
@@ -139,45 +86,18 @@ export const Abby = {
     },
 
     {
-      name: "John Summit",
-      id: "Z7r9jZ1Ad46Z0",
-      url: "https://www.ticketmaster.com/event/Z7r9jZ1Ad46Z0",
-      images: [
-        {
-          ratio: "16_9",
-          url: "https://s1.ticketm.net/dam/c/060/c5c08e7a-9912-456c-a060-2758be94e060_105881_RECOMENDATION_16_9.jpg",
-          width: 100,
-          height: 56,
-          fallback: true,
-        },
-      ],
-      dates: {
-        start: {
-          localDate: "2022-12-09",
-          localTime: "20:00:00",
-          dateTime: "2022-12-10T04:00:00Z",
-        },
-      },
-      _embedded: {
-        venues: [
-          {
-            name: "Showbox at the Market",
-            city: {
-              name: "Seattle",
-            },
-            state: {
-              stateCode: "WA",
-            },
-            address: {
-              line1: "1426 1st Ave.",
-            },
-            location: {
-              longitude: "-122.325996",
-              latitude: "47.602402",
-            },
-          },
-        ],
-      },
+      name: "Lane 8",
+    id: "vvG1YZ92YPOzep",
+    buyTicketsUrl: "https://concerts.livenation.com/lane-8-reviver-tour-irving-texas-10-22-2022/event/0C005CFC25838096",
+    image: "https://s1.ticketm.net/dam/a/7e4/5d5c89a9-271e-4b89-b9c4-47d14b4197e4_1545251_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+    date: "2022-10-22", 
+    time: "19:00:00",
+    venueName: "The Pavilion at Toyota Music Factory",
+    city: "Irving",
+    state: "TX",
+    address: "300 W Las Colinas Blvd",
+    longitude: "-96.942954",
+    latitude: "32.872469",
       attendees: [
         {
           name: "Chantal",

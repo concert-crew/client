@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import "./SearchForm"
+import "./SearchForm.css"
+import EventsContainer from "../EventsContainer/EventsContainer"
+import { events } from "../../sampleEvents"
 
-
-const SearchForm = ({setSearchInput}) => {
+const SearchForm = ({setSearchedEvents}) => {
 const [artistName, setArtistName] = useState("");
+const [results, setResults] = useState([])
 
-console.log(122334,{setSearchInput})
 const handleChange = (e) => {
-  setSearchInput('word')
   setArtistName(e.target.value)
-    console.log('e.target.value',e.target.value)
+
 }
 
 // const clearInputs = () => {
@@ -20,14 +20,22 @@ const handleChange = (e) => {
 // })
 
 const handleClick = (e) => {
-    e.preventDefault()
-    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${artistName}&countryCode=US&apikey=1d6CHVXa7noU5jONo66IsHnTFFeBC0AC`)
-    .then(promise => promise.json())
-    .then(data=> console.log(data))
+  e.preventDefault()
+  setSearchedEvents(events)
+  setResults(events)
+
+    // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${artistName}&countryCode=US&apikey=1d6CHVXa7noU5jONo66IsHnTFFeBC0AC`)
+    // .then(promise => promise.json())
+    // .then(data=> console.log(data))
     // .throw(error => console.log(error))
 }
 
+const toBeDisplayed = results.length ?  
+<EventsContainer events={results}/> 
+: <p>Search for an upcoming show!</p>
+
   return (
+    <div>
     <form>
        <input 
        type='text'
@@ -38,6 +46,8 @@ const handleClick = (e) => {
        />
     <button className="search-btn" onClick={e=>handleClick(e)}> SEARCH </button>
     </form>
+    {toBeDisplayed}
+    </div>
   )
 }
 
