@@ -9,9 +9,9 @@ console.log(events);
     <EventCard
     key={event.id}
       name={event.name}
-      date={event.dates.start.localDate}
-      venue={event._embedded.venues[0].name}
-      image={event.images[0].url}
+      date={event.date}
+      venue={event.venueName}
+      image={event.image}
       id={event.id}
     />
   ));
