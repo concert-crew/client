@@ -4,7 +4,7 @@ import EventsContainer from "../EventsContainer/EventsContainer";
 import { Link } from "react-router-dom";
 import "./UserDashboard.css";
 import { useParams } from "react-router-dom";
-import { useUser } from "../hooks/useUser";
+import { useUser } from "../../hooks/useUser";
 
 
 
