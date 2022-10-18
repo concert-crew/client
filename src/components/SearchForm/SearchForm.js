@@ -19,8 +19,12 @@ const handleChange = (e) => {
 
 // })
 
-const handleClick = () => {
-    fetch()
+const handleClick = (e) => {
+    e.preventDefault()
+    fetch(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${artistName}&countryCode=US&apikey=1d6CHVXa7noU5jONo66IsHnTFFeBC0AC`)
+    .then(promise => promise.json())
+    .then(data=> console.log(data))
+    // .throw(error => console.log(error))
 }
 
   return (
@@ -32,7 +36,7 @@ const handleClick = () => {
        value={artistName}
        onChange= {e=>handleChange(e)}
        />
-    <button className="search-btn" onClick={handleClick}> SEARCH </button>
+    <button className="search-btn" onClick={e=>handleClick(e)}> SEARCH </button>
     </form>
   )
 }
