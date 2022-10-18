@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 import { Route, Switch } from "react-router-dom";
 import { Abby } from "../../sampleUser";
 import UserDashboard from "../UserDashboard/UserDashboard";
-import EventDetails from "../../EventDetails/EventDetails";
+import EventDetails from "../EventDetails/EventDetails";
 import FriendsDashboard from "../FriendsDashboard/FriendsDashboard";
 import Status404 from "../../errorHandling/Status404";
 import InternalServerError from "../../errorHandling/InternalServerError";
