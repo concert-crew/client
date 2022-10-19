@@ -1,3 +1,17 @@
+.mapid wz-iframe-header__buttons>a{
+ 
+}
+.mapid wz-iframe-header__content{
+   background: transparent !important;
+}
+
+.mapid wm-attribution-control{
+/* display: none !important; */
+background: transparent !important;
+justify-content: center;
+}
+
+
 .event-details-container {
     display: flex;
     justify-content: space-around;
