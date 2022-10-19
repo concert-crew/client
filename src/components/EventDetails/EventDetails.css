@@ -14,7 +14,7 @@
 
 .details-text {
     text-align: left;
-    margin: 1rem;
+    margin: 1rem 0rem;
     width: 33%;
 }
 
@@ -41,7 +41,8 @@
     border-radius: 50%;
 }
 
-.comment-title {
+.comment-title,
+.no-comDiv {
     color: white;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
@@ -62,4 +63,8 @@
     border-radius: 0% !important;
     border: none !important;
     color: white;
+}
+
+.hr-style {
+    display: none;
 }

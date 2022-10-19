@@ -1,41 +1,42 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import './EventCard.css'
-// import { gsap } from 'gsap';
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { PixiPlugin } from "gsap/PixiPlugin.js";
-// import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { PixiPlugin } from "gsap/PixiPlugin.js";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
 
 
 
-// gsap.registerPlugin(ScrollTrigger);
-// gsap.registerPlugin(PixiPlugin, MotionPathPlugin );
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(PixiPlugin, MotionPathPlugin );
 
 const EventCard = ({name, date, venue, image, id}) => {
     
-  // const boxRef = useRef(null)
+  const boxRef = useRef(null)
 
   const [year, month, day] = date.split("-");
 
-  // useEffect(() => {
-  //   gsap.to(".event-card", {
-  //   duration: 3,
-  //   motionPath: {
-  //     path: [{x:-500, y:0}, {x:0, y:0}, {x:0, y:0}, {x:0, y:0}],
-  //     type: "cubic"
-  //   }
-  //   })
-  // }, [])
+  useEffect(() => {
+    gsap.to(".event-card", {
+    duration: 3,
+    motionPath: {
+      path: [{x:-500, y:0}, {x:0, y:0}, {x:0, y:0}, {x:0, y:0}],
+      type: "cubic"
+    }
+    })
+  }, [])
 
   return (
     <div
-      // ref={boxRef}
+      ref={boxRef}
       className="event-card"
       style={{
         backgroundImage: `url(${image})`,
         backgroundPosition: "top",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "300px 190px",
+        backgroundSize: "100% 190px",
+        backgroundAttachment: "fixed"
       }}
     >
      

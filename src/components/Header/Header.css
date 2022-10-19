@@ -19,8 +19,8 @@
     justify-content: flex-end;
     align-items: center;
     height: 100%;
-    width: 50%;
-    /* margin-right: 2rem; */
+    width: 70%;
+    margin-right: 2rem;
 }
 
 .h1-wrapper{
@@ -36,17 +36,26 @@ h1 {
 }
 
 .logout-btn,
-.view-friends-btn{
+.view-friends-btn,
+.dashboard-btn{
     display: flex;
-    width: 2rem;
-    margin-right: 2rem;
+    width: 1.5rem;
     z-index: 3;
+    margin-right: .5rem;
 }
 
-.view-friends-btn{
-    width: 2.5rem;
+.view-friends-btn {
+    width: 2.7rem;
 }
 
 .nav-bar-text {
-    font-size: 12px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.icon-and-text {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    width: 12rem;
 }

@@ -46,7 +46,9 @@ const toBeDisplayed = results.length ?
        />
     <button className="search-btn" onClick={e=>handleClick(e)}> SEARCH </button>
     </form>
-    {toBeDisplayed}
+      <div className="search-results-container">
+        {toBeDisplayed}
+      </div>
     </div>
   )
 }

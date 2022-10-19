@@ -1,0 +1,20 @@
+input {
+    border: none;
+    height: 3rem;
+    width: 20rem;
+    font-size: 20px;
+    margin-right: .5rem;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5rem;
+}
+
+.search-results-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}

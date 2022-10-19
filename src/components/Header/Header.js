@@ -3,6 +3,7 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import logout from "../../images/logout-icon.svg"
 import viewFriends from "../../images/friends_1.svg"
+import userIcon from "../../images/user-icon.svg"
 
 
 const Header = ({ user, signOut }) => {
@@ -12,13 +13,23 @@ const Header = ({ user, signOut }) => {
     
   const button = user && (
     <div className="header-login-container">
-      <Link to={`${user.name}/friends`}>
-        <img className="view-friends-btn" src={viewFriends}/>
-        <h3 className="nav-bar-text">View Friends Upcoming Shows</h3>
+      <Link to={`/${user.name}`}>
+        <div className="icon-and-text">
+          <img className="dashboard-btn" src={userIcon} />
+          <h3 className="nav-bar-text">Back to Dashboard</h3>
+        </div>
       </Link>
-      {/* fxn that querys all other events that aren't related to the current user */}
+      <Link to={`${user.name}/friends`}>
+        <div className="icon-and-text">
+          <img className="view-friends-btn" src={viewFriends}/>
+          <h3 className="nav-bar-text">View Friends Upcoming Shows</h3>
+        </div>
+      </Link>
       <Link to="/">
-        <img className="logout-btn" src={logout} onClick={() => signOut("")}/>
+        <div className="icon-and-text">
+          <img className="logout-btn" src={logout} onClick={() => signOut("")}/>
+          <h3 className="nav-bar-text">Logout</h3>
+        </div>
       </Link>
     </div>
   );
