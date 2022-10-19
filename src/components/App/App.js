@@ -72,11 +72,13 @@ const findDetails = (id) => {
           <Login setCurrentUser={setCurrentUser} />  
           } 
         />
-        <Route component={Status404} />
+        <Route component={Status404} setCurrentUser={setCurrentUser}/>
         <Route component={InternalServerError} />
       </Switch>
     </main>
   );
 };
+
+
 
 export default App;

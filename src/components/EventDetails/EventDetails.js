@@ -3,6 +3,7 @@ import { CommentSection } from "react-comments-section";
 import "react-comments-section/dist/index.css";
 import './EventDetails.css'
 
+
 const EventDetails = ({ event, user }) => {
   const [data, setData] = useState(event.comments);
   console.log(event)
@@ -50,6 +51,8 @@ const EventDetails = ({ event, user }) => {
         src={`https://embed.waze.com/iframe?zoom=10&lat=${event.latitude}&lon=${event.longitude}&pin=1`}
         width="100%"
         height="250"
+        title="waze"
+        className="mapid"
       ></iframe>
       <br></br>
       <br></br>
