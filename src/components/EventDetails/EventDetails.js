@@ -1,7 +1,30 @@
 import React, { useState } from "react";
 import { CommentSection } from "react-comments-section";
+// import { Mutation } from "../Mutation/Mutation"
+import { gql, useMutation } from "@apollo/client"
 import "react-comments-section/dist/index.css";
 import './EventDetails.css'
+
+const CREATE_EVENT = gql`
+    mutation CreateEvent($name: String!, $ticketmasterId: String!, $buyTicketsUrl: String!, $image: String!, $date: String!, $time: String!, $venueName: String!, $city: String!, $state: String!, $address: String!, $longitude: $String!, $latitude: $String!) {
+        createEvent(input: {
+            name: $name, ticketmasterId: $ticketmasterId, buyTicketsUrl: $buyTicketsUrl, image: $image, date: $date, time: $time, venueName: $venueName, city: $city, state: $state, address: $address, longitude: $longitude, latitude: $latitude}) {
+            name
+            ticketmasterId
+            buyTicketsUrl
+            image
+            date
+            time
+            venueName
+            city
+            state
+            address
+            longitude
+            latitude
+        
+        }
+    }
+`
 
 const EventDetails = ({ event, user }) => {
   // const [data, setData] = useState(event.comments);
@@ -23,6 +46,10 @@ const EventDetails = ({ event, user }) => {
     hour: "numeric",
     minute: "numeric",
   });
+
+
+
+  const [createEvent] = useMutation(CREATE_EVENT)
 
   return (
     <div className="details-page">
@@ -64,7 +91,22 @@ const EventDetails = ({ event, user }) => {
         {/* {attendees} */}
       </div>
       </div>
-      <button>ADD SHOW TO YOUR EVENTS</button>
+      <button onClick={e => {
+        e.preventDefault()
+        createEvent({variables: {
+          name: event.name,
+          ticketmasterId: event.ticketmasterId,
+          buyTicketsUrl: event.buyTicketsUrl,
+          image: event.image,
+          date: event.date,
+          time: event.time,
+          venueName: event.venueName,
+          city: event.city,
+          state: event.state,
+          address: event.address,
+          longitude: event.longitude,
+          latitude: event.latitude
+      } })}}>ADD SHOW TO YOUR EVENTS</button>
       <div className="comments-section">
     
       {/* <CommentSection
