@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./SearchForm.css"
 import EventsContainer from "../EventsContainer/EventsContainer"
 import { events } from "../../sampleEvents"
+import { createEvent } from '@testing-library/react'
 
 const SearchForm = ({setSearchedEvents}) => {
 const [artistName, setArtistName] = useState("");
@@ -23,12 +24,30 @@ const handleClick = (e) => {
   e.preventDefault()
   setSearchedEvents(events)
   setResults(events)
-
-    // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?keyword=${artistName}&countryCode=US&apikey=1d6CHVXa7noU5jONo66IsHnTFFeBC0AC`)
-    // .then(promise => promise.json())
-    // .then(data=> console.log(data))
-    // .throw(error => console.log(error))
 }
+
+// mutation {
+//   createEvent(record: {
+//         id: ,
+//         name:,
+//         ticketmasterId:,
+//         buyTicketsUrl:,
+//         image:,
+//         date:,
+//         time:,
+//         venueName:,
+//         city:,
+//         state:,
+//         address:,
+//         longitude
+//         latitude
+//   }){
+//     record {
+
+//     }
+//   }
+// }
+
 
 const toBeDisplayed = results.length ?  
 <EventsContainer events={results}/> 
