@@ -56,7 +56,7 @@ const findDetails = (id) => {
         <Route
           exact
           path="/:user/friends"
-          render={() => <FriendsDashboard findDetails={findDetails} events={Abby.events}/>}
+          render={() => <FriendsDashboard findDetails={findDetails} events={currentUser.events}/>}
         />
         <Route
           exact

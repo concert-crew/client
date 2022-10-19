@@ -1,12 +1,17 @@
 .events-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background: rgba(255, 255, 255, 0.4);
-    height: 50%;
+    height: 60%;
     padding: 2rem;
     width: 70%;
     margin-top: 3rem;
     margin-bottom: 2rem;
     overflow-x: scroll;
+    scroll-snap-type: x mandatory;
 }
+
+.cards::-webkit-scrollbar {
+    height: 12px;
+  }
