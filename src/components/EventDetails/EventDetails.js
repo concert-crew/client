@@ -4,7 +4,7 @@ import "react-comments-section/dist/index.css";
 import './EventDetails.css'
 
 const EventDetails = ({ event, user }) => {
-  const [data, setData] = useState(event.comments);
+  // const [data, setData] = useState(event.comments);
   console.log(event)
   // const attendees = event.attendees.map((attendee) => (
   //   <div className="friend" key={attendee.name}>
@@ -46,6 +46,7 @@ const EventDetails = ({ event, user }) => {
         {event.state}
       </p>
       <br></br>
+
       <iframe
         src={`https://embed.waze.com/iframe?zoom=10&lat=${event.latitude}&lon=${event.longitude}&pin=1`}
         width="100%"
@@ -63,9 +64,10 @@ const EventDetails = ({ event, user }) => {
         {/* {attendees} */}
       </div>
       </div>
+      <button>ADD SHOW TO YOUR EVENTS</button>
       <div className="comments-section">
     
-      <CommentSection
+      {/* <CommentSection
         currentUser={{
           currentUserId: user.id,
           currentUserImg: user.image,
@@ -73,7 +75,7 @@ const EventDetails = ({ event, user }) => {
         }}
         commentData={data}
         onSubmitAction={(newData) => setData([...data, newData])}
-      />
+      /> */}
       </div>
     </div>
   );

@@ -13,18 +13,23 @@ const handleChange = (e) => {
 
 }
 
-// const clearInputs = () => {
-//     this.setState({ title: '', description: '' });
-//   }
 // useEffect(()=>{
 
 // })
 
 const handleClick = (e) => {
   e.preventDefault()
-  setSearchedEvents(events)
-  setResults(events)
+
+  fetch(`https://concert-crew-be.herokuapp.com/api/v1/events?keyword=${artistName}`)
+  .then(response => response.json())
+  .then(data => {
+    setResults(data.data.events)
+    setSearchedEvents(data.data.events)
+  })
+  setArtistName('')
 }
+
+
 
 // mutation {
 //   createEvent(record: {
