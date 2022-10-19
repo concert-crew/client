@@ -15,7 +15,7 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState('');
   const [searchedEvents, setSearchedEvents] = useState([])
   const [foundEvent, setFoundEvent] = useState({})
-
+  const [hasError404, setHasError404] = useState('')
 //findDetails -> event card. viewDetails button invokes findDetails. SearchedEvents to set state. Searches through currentUsers events and searches through results to line up ids
 
 const findDetails = (id) => {
@@ -50,6 +50,7 @@ const findDetails = (id) => {
               //  user={match.params.user}
               findDetails={findDetails} 
               setCurrentUser={setCurrentUser}
+              setHasError404={setHasError404}
             />
           )}
         />
