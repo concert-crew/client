@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 import "./UserDashboard.css";
 import { useParams } from "react-router-dom";
 import { useUser } from "../../hooks/useUser";
+import Status404 from "../../errorHandling/Status404";
 
 
-
-const UserDashboard = ({setCurrentUser}) => {
+const UserDashboard = ({setCurrentUser, setHasError404}) => {
   // const [animate, setAnimate] = useState(false)
   const { user } = useParams();
 
   const { data, error, loading } = useUser(user);
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>User not found.</div>;
+  if (error) return ( <Status404 setHasError404={setHasError404}/>);
   setCurrentUser(data.user)
 
   return (
