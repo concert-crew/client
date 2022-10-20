@@ -6,9 +6,9 @@ import "react-comments-section/dist/index.css";
 import './EventDetails.css'
 
 const CREATE_EVENT = gql`
-    mutation CreateEvent($name: String!, $ticketmasterId: String!, $buyTicketsUrl: String!, $image: String!, $date: String!, $time: String!, $venueName: String!, $city: String!, $state: String!, $address: String!, $longitude: $String!, $latitude: $String!) {
-        createEvent(input: {
-            name: $name, ticketmasterId: $ticketmasterId, buyTicketsUrl: $buyTicketsUrl, image: $image, date: $date, time: $time, venueName: $venueName, city: $city, state: $state, address: $address, longitude: $longitude, latitude: $latitude}) {
+    mutation CreateEvent($input: CreateEventInput!) {
+        createEvent(input: $input) {
+          event {
             name
             ticketmasterId
             buyTicketsUrl
@@ -21,9 +21,9 @@ const CREATE_EVENT = gql`
             address
             longitude
             latitude
-        
-        }
+          }
     }
+  }
 `
 
 const EventDetails = ({ event, user }) => {
@@ -50,6 +50,25 @@ const EventDetails = ({ event, user }) => {
 
 
   const [createEvent] = useMutation(CREATE_EVENT)
+
+  const handleButtonClick = () => {
+    createEvent({variables: {
+      input: {
+        name: event.name,
+          ticketmasterId: event.id,
+          buyTicketsUrl: event.buyTicketsURL,
+          image: event.image,
+          date: event.date,
+          time: event.time,
+          venueName: event.venueName,
+          city: event.city,
+          state: event.state,
+          address: event.address,
+          longitude: event.longitude,
+          latitude: event.latitude
+      }
+    }})
+  }
 
   return (
     <div className="details-page">
@@ -93,20 +112,23 @@ const EventDetails = ({ event, user }) => {
       </div>
       <button onClick={e => {
         e.preventDefault()
-        createEvent({variables: {
-          name: event.name,
-          ticketmasterId: event.ticketmasterId,
-          buyTicketsUrl: event.buyTicketsUrl,
-          image: event.image,
-          date: event.date,
-          time: event.time,
-          venueName: event.venueName,
-          city: event.city,
-          state: event.state,
-          address: event.address,
-          longitude: event.longitude,
-          latitude: event.latitude
-      } })}}>ADD SHOW TO YOUR EVENTS</button>
+        handleButtonClick()
+    //     createEvent({ variables: {
+    //       name: event.name,
+    //       ticketmasterId: event.ticketmasterId,
+    //       buyTicketsUrl: event.buyTicketsUrl,
+    //       image: event.image,
+    //       date: event.date,
+    //       time: event.time,
+    //       venueName: event.venueName,
+    //       city: event.city,
+    //       state: event.state,
+    //       address: event.address,
+    //       longitude: event.longitude,
+    //       latitude: event.latitude
+    //   }
+    //  })
+    }}>ADD SHOW TO YOUR EVENTS</button>
       <div className="comments-section">
     
       {/* <CommentSection
