@@ -20,12 +20,10 @@ const App = () => {
 
 const findDetails = (id) => {
   let foundEvent
-  if (currentUser.events.length) {
-    foundEvent = currentUser.events.find(event => event.ticketmasterId
-      === id) 
+  if (searchedEvents.length) {
+    foundEvent = searchedEvents.find(event => event.id === id)
   } else {
-    foundEvent = searchedEvents.find(event => event.ticketmasterId
-      === id)
+    foundEvent = currentUser.events.find(event => event.ticketmasterId === id) 
   }
   console.log(foundEvent)
   return foundEvent

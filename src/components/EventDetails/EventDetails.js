@@ -1,11 +1,33 @@
 import React, { useState } from "react";
 import { CommentSection } from "react-comments-section";
+// import { Mutation } from "../Mutation/Mutation"
+import { gql, useMutation } from "@apollo/client"
 import "react-comments-section/dist/index.css";
 import './EventDetails.css'
 
 
+const CREATE_EVENT = gql`
+    mutation CreateEvent($input: CreateEventInput!) {
+        createEvent(input: $input) {
+          event {
+            name
+            ticketmasterId
+            buyTicketsUrl
+            image
+            date
+            time
+            venueName
+            city
+            state
+            address
+            longitude
+            latitude
+          }
+    }
+  }
+`
 const EventDetails = ({ event, user }) => {
-  const [data, setData] = useState(event.comments);
+  // const [data, setData] = useState(event.comments);
   console.log(event)
   // const attendees = event.attendees.map((attendee) => (
   //   <div className="friend" key={attendee.name}>
@@ -24,6 +46,29 @@ const EventDetails = ({ event, user }) => {
     hour: "numeric",
     minute: "numeric",
   });
+
+
+
+  const [createEvent] = useMutation(CREATE_EVENT)
+
+  const handleButtonClick = () => {
+    createEvent({variables: {
+      input: {
+        name: event.name,
+          ticketmasterId: event.id,
+          buyTicketsUrl: event.buyTicketsURL,
+          image: event.image,
+          date: event.date,
+          time: event.time,
+          venueName: event.venueName,
+          city: event.city,
+          state: event.state,
+          address: event.address,
+          longitude: event.longitude,
+          latitude: event.latitude
+      }
+    }})
+  }
 
   return (
     <div className="details-page">
@@ -47,6 +92,7 @@ const EventDetails = ({ event, user }) => {
         {event.state}
       </p>
       <br></br>
+
       <iframe
         src={`https://embed.waze.com/iframe?zoom=10&lat=${event.latitude}&lon=${event.longitude}&pin=1`}
         width="100%"
@@ -66,9 +112,28 @@ const EventDetails = ({ event, user }) => {
         {/* {attendees} */}
       </div>
       </div>
+      <button onClick={e => {
+        e.preventDefault()
+        handleButtonClick()
+    //     createEvent({ variables: {
+    //       name: event.name,
+    //       ticketmasterId: event.ticketmasterId,
+    //       buyTicketsUrl: event.buyTicketsUrl,
+    //       image: event.image,
+    //       date: event.date,
+    //       time: event.time,
+    //       venueName: event.venueName,
+    //       city: event.city,
+    //       state: event.state,
+    //       address: event.address,
+    //       longitude: event.longitude,
+    //       latitude: event.latitude
+    //   }
+    //  })
+    }}>ADD SHOW TO YOUR EVENTS</button>
       <div className="comments-section">
     
-      <CommentSection
+      {/* <CommentSection
         currentUser={{
           currentUserId: user.id,
           currentUserImg: user.image,
@@ -76,7 +141,7 @@ const EventDetails = ({ event, user }) => {
         }}
         commentData={data}
         onSubmitAction={(newData) => setData([...data, newData])}
-      />
+      /> */}
       </div>
     </div>
   );

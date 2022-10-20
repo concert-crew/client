@@ -12,7 +12,7 @@ console.log(events);
       date={event.date}
       venue={event.venueName}
       image={event.image}
-      id={event.ticketmasterId}
+      id={event.id}
     />
   ));
   return <div className="events-container">{eventCards}</div>;
