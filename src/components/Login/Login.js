@@ -3,14 +3,14 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import { Abby } from "../../sampleUser";
 
-const Login = ({ setCurrentUser }) => {
+const Login = () => {
   const [name, setName] = useState("");
 
 
 
-  const handleClick = (e) => {
-    setCurrentUser(Abby);
-  };
+  // const handleClick = (e) => {
+  //   setCurrentUser(Abby);
+  // };
 
   return (
     <div className="login-form">
@@ -30,7 +30,9 @@ const Login = ({ setCurrentUser }) => {
         <option value="Shirley">Shirley</option>
       </select>
       <Link to={`/${name}`}>
-        <button className="login-button" onClick={(e) => handleClick(e)}>
+        <button className="login-button" 
+        // onClick={(e) => handleClick(e)}
+        >
           LOG IN
         </button>
       </Link>

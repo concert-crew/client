@@ -13,9 +13,6 @@ const handleChange = (e) => {
 
 }
 
-// useEffect(()=>{
-
-// })
 
 const handleClick = (e) => {
   e.preventDefault()
@@ -28,30 +25,6 @@ const handleClick = (e) => {
   })
   setArtistName('')
 }
-
-
-
-// mutation {
-//   createEvent(record: {
-//         id: ,
-//         name:,
-//         ticketmasterId:,
-//         buyTicketsUrl:,
-//         image:,
-//         date:,
-//         time:,
-//         venueName:,
-//         city:,
-//         state:,
-//         address:,
-//         longitude
-//         latitude
-//   }){
-//     record {
-
-//     }
-//   }
-// }
 
 
 const toBeDisplayed = results.length ?  

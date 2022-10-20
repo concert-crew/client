@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { CommentSection } from "react-comments-section";
-// import { Mutation } from "../Mutation/Mutation"
-import { gql, useMutation } from "@apollo/client"
+import { gql, useMutation } from "@apollo/client";
 import "react-comments-section/dist/index.css";
-import './EventDetails.css'
+import "./EventDetails.css";
+
 
 
 const CREATE_EVENT = gql`
@@ -22,19 +22,20 @@ const CREATE_EVENT = gql`
             address
             longitude
             latitude
-          }
-    }
+          } 
+        }
   }
-`
-const EventDetails = ({ event, user }) => {
+`;
+const EventDetails = ({ event, user, setCurrentUser }) => {
   // const [data, setData] = useState(event.comments);
-  console.log(event)
+
   // const attendees = event.attendees.map((attendee) => (
   //   <div className="friend" key={attendee.name}>
   //     <img src={attendee.image} alt={attendee.name} className="friend-image"/>
   //     <p>{attendee.name}</p>
   //   </div>
   // ));
+
 
   const [year, month, day] = event.date.split("-");
 
@@ -47,16 +48,15 @@ const EventDetails = ({ event, user }) => {
     minute: "numeric",
   });
 
-
-
-  const [createEvent] = useMutation(CREATE_EVENT)
+  const [createEvent] = useMutation(CREATE_EVENT);
 
   const handleButtonClick = () => {
-    createEvent({variables: {
-      input: {
-        name: event.name,
-          ticketmasterId: event.id,
-          buyTicketsUrl: event.buyTicketsURL,
+    createEvent({
+      variables: {
+        input: {
+          name: event.name,
+          ticketmasterId: event.ticketmasterId,
+          buyTicketsUrl: event.buyTicketsUrl,
           image: event.image,
           date: event.date,
           time: event.time,
@@ -65,60 +65,66 @@ const EventDetails = ({ event, user }) => {
           state: event.state,
           address: event.address,
           longitude: event.longitude,
-          latitude: event.latitude
-      }
-    }})
-  }
+          latitude: event.latitude,
+        }
+      },
+    });
+console.log(user);
+setCurrentUser({...user, events: [...user.events, event]})
+console.log(user);
+  };
 
   return (
     <div className="details-page">
-    <div className="event-details-container">
-      <img className="details-photo" src={event.image} alt={event.name} />
-      <div className="details-text">
-      <h3>{event.name.toUpperCase()}</h3>
-      <br></br>
-      <p>
-        {`${month}/${day}/${year}`}
-        <br></br>
-        {timeString12hr}
-      </p>
-      <br></br>
-      <p>
-        <b>{event.venueName}</b>
-        <br></br>
-        {event.address}
-        <br></br>
-        {event.city},
-        {event.state}
-      </p>
-      <br></br>
+      <div className="event-details-container">
+        <img className="details-photo" src={event.image} alt={event.name} />
+        <div className="details-text">
+          <h3>{event.name.toUpperCase()}</h3>
+          <br></br>
+          <p>
+            {`${month}/${day}/${year}`}
+            <br></br>
+            {timeString12hr}
+          </p>
+          <br></br>
+          <p>
+            <b>{event.venueName}</b>
+            <br></br>
+            {event.address}
+            <br></br>
+            {event.city},{event.state}
+          </p>
+          <br></br>
 
-      <iframe
-        src={`https://embed.waze.com/iframe?zoom=10&lat=${event.latitude}&lon=${event.longitude}&pin=1`}
-        width="100%"
-        height="250"
-        title="waze"
-        className="mapid"
-      ></iframe>
-      <br></br>
-      <br></br>
-      <a href={event.buyTicketsUrl} target="_blank">
-        <u>Buy Tickets</u>
-      </a>
+          <iframe
+            src={`https://embed.waze.com/iframe?zoom=10&lat=${event.latitude}&lon=${event.longitude}&pin=1`}
+            width="100%"
+            height="250"
+            title="waze"
+            className="mapid"
+          ></iframe>
+          <br></br>
+          <br></br>
+          <a href={event.buyTicketsUrl} target="_blank">
+            <u>Buy Tickets</u>
+          </a>
+        </div>
+        <div className="friends-attending-details">
+          <h3>FRIENDS ATTENDING:</h3>
+          <br></br>
+          {/* {attendees} */}
+        </div>
       </div>
-      <div className="friends-attending-details">
-        <h3>FRIENDS ATTENDING:</h3>
-        <br></br>
-        {/* {attendees} */}
-      </div>
-      </div>
-      <button onClick={e => {
-        e.preventDefault()
-        handleButtonClick()
-    }}>ADD SHOW TO YOUR EVENTS</button>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          handleButtonClick();
+        }}
+      >
+        ADD SHOW TO YOUR EVENTS
+      </button>
       <div className="comments-section">
-    
-      {/* <CommentSection
+        {/* <CommentSection
         currentUser={{
           currentUserId: user.id,
           currentUserImg: user.image,

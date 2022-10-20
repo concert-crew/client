@@ -14,6 +14,7 @@ const UserDashboard = ({setCurrentUser, setHasError404}) => {
 
   const { data, error, loading } = useUser(user);
 
+
   if (loading) return <div>Loading...</div>;
   if (error) return ( <Status404 setHasError404={setHasError404}/>);
   setCurrentUser(data.user)
