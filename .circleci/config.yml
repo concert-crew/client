@@ -21,6 +21,7 @@ jobs:
           root: ~/project
           paths:
             - .
+    transpile: ['gsap']
   deploy:
     executor: heroku/default
     steps:
