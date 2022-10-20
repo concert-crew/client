@@ -25,6 +25,7 @@ select {
     border: none;
     margin-bottom: 2vh;
     font-size: 20px;
+    border-radius: 3px;
 } 
 
 h2 {

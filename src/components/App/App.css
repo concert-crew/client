@@ -23,6 +23,7 @@ button {
   color: white;
   box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
   transition: background 0.2s ease;
+  border-radius: 3px;
 }
 
 button:hover{
