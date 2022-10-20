@@ -41,7 +41,7 @@ h1 {
     display: flex;
     width: 1.5rem;
     z-index: 3;
-    margin-right: .5rem;
+    margin-right: .2rem;
 }
 
 .view-friends-btn {
@@ -57,5 +57,5 @@ h1 {
     display: flex;
     align-items: center;
     margin: 1rem;
-    width: 12rem;
+    width: 10rem;
 }

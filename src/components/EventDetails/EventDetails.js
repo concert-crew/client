@@ -113,21 +113,6 @@ const EventDetails = ({ event, user }) => {
       <button onClick={e => {
         e.preventDefault()
         handleButtonClick()
-    //     createEvent({ variables: {
-    //       name: event.name,
-    //       ticketmasterId: event.ticketmasterId,
-    //       buyTicketsUrl: event.buyTicketsUrl,
-    //       image: event.image,
-    //       date: event.date,
-    //       time: event.time,
-    //       venueName: event.venueName,
-    //       city: event.city,
-    //       state: event.state,
-    //       address: event.address,
-    //       longitude: event.longitude,
-    //       latitude: event.latitude
-    //   }
-    //  })
     }}>ADD SHOW TO YOUR EVENTS</button>
       <div className="comments-section">
     

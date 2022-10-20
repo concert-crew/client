@@ -1,8 +1,9 @@
 .event-details-container {
     display: flex;
     justify-content: space-around;
-    margin: 1rem 0 3rem 0;
-    width: 90%;
+    margin: 2rem 0 5rem 0;
+    padding: 2rem;
+    width: 80%;
     background: rgba(255, 255, 255, 0.4);
 }
 

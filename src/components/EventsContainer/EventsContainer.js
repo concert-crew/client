@@ -12,6 +12,8 @@ console.log(events);
       date={event.date}
       venue={event.venueName}
       image={event.image}
+      city={event.city}
+      state={event.state}
       id={event.id}
     />
   ));
