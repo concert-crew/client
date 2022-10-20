@@ -7,14 +7,14 @@ console.log(events);
 
   const eventCards = events.map((event) => (
     <EventCard
-    key={event.id}
+    key={event.ticketmasterId}
       name={event.name}
       date={event.date}
       venue={event.venueName}
       image={event.image}
       city={event.city}
       state={event.state}
-      id={event.id}
+      id={event.ticketmasterId}
     />
   ));
   return <div className="events-container">{eventCards}</div>;
