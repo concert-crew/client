@@ -16,7 +16,7 @@ justify-content: center;
     display: flex;
     justify-content: space-around;
     margin: 2rem 0 5rem 0;
-    padding: 2rem;
+    padding: 3.5rem 2rem;
     width: 80%;
     background: rgba(255, 255, 255, 0.4);
 }

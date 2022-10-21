@@ -39,7 +39,11 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
 
   const [year, month, day] = event.date.split("-");
 
-  const timeString12hr = new Date(
+  let timeString12hr 
+  if (!year && !month && !day) {
+    timeString12hr = "Multi Day Event"
+  } else {
+    timeString12hr = new Date(
     "1970-01-01T" + event.time + "Z"
   ).toLocaleTimeString("en-US", {
     timeZone: "UTC",
@@ -47,6 +51,8 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
     hour: "numeric",
     minute: "numeric",
   });
+}
+    
 
   const [createEvent] = useMutation(CREATE_EVENT);
 

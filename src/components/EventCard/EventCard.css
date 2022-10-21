@@ -3,12 +3,11 @@
     color: #262626;
     margin-top: auto;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
+    /* flex-direction: column; */
     /* flex: 1 1 100%; */
     margin-left: 10px;
     margin-right: 10px;
-    width: 200px;
     border-radius: 3px;
 }
 
@@ -38,27 +37,29 @@
       } */
 
 .card-text {
-    margin: 200px 0 15px 10px;
+    margin: 210px 20px 20px 20px;
     text-align: left;
-    font-size: 14px;
-    width: 90%;
-    overflow: hidden;
-    white-space: nowrap;
+    font-size: 16px;
+    width: 260px;
+    animation: slide-left 20s linear infinite;
+    overflow: wrap;
+    /* white-space: nowrap;
     text-overflow: clip;
-    position: relative;
+    position: relative; */
 }
 
-.card-text::after {
+
+/* .card-text::after {
     content: "";
     position: absolute;
     right: 0;
     height: 100%;
-    width: 2rem;
+    width: 6rem;
     background-image: linear-gradient(
         to right, transparent, white
     );
     pointer-events: none;
-}
+} */
 
 h3 {
     font-weight:800;
@@ -66,10 +67,10 @@ h3 {
 
 .view-details-button {
     width: 10rem;
-    font-size: 16px;
-    padding: 1.5vh 2vw;
-    background-color: #262626;
+    font-size: 14px;
+    padding: .8rem;
+    background-color: #ed2590;
     color: white;
-    margin: 0 20px 10px 20px;
+    margin: 30px 20px 30px 20px;
     border-radius: 3px;
 }
