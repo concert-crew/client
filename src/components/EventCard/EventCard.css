@@ -37,19 +37,18 @@
       } */
 
 .card-text {
-    margin: 210px 20px 20px 20px;
+    margin: 250px 20px 10px 20px;
     text-align: left;
     font-size: 16px;
     width: 260px;
-    animation: slide-left 20s linear infinite;
-    overflow: wrap;
-    /* white-space: nowrap;
+    overflow: hidden;
+    white-space: nowrap;
     text-overflow: clip;
-    position: relative; */
+    position: relative;
 }
 
 
-/* .card-text::after {
+.card-text::after {
     content: "";
     position: absolute;
     right: 0;
@@ -59,7 +58,7 @@
         to right, transparent, white
     );
     pointer-events: none;
-} */
+}
 
 h3 {
     font-weight:800;
