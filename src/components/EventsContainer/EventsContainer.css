@@ -22,7 +22,7 @@
 @media (min-width: 320px) and (max-width: 989px) {
     .events-container {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         background: rgba(255, 255, 255, 0.4);
         padding: 2rem;
