@@ -10,6 +10,8 @@ import Status404 from "../../errorHandling/Status404";
 import InternalServerError from "../../errorHandling/InternalServerError";
 import SearchForm from "../../components/SearchForm/SearchForm"
 
+
+
 const App = () => {
   const [currentUser, setCurrentUser] = useState("");
   const [searchedEvents, setSearchedEvents] = useState([]);

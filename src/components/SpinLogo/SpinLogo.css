@@ -1,0 +1,38 @@
+.pinkLogo{
+    height: 70%;
+    width: 70%;
+    /* position: absolute; */
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-top: 1rem;
+ }
+
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  } 
+
+  @media (prefers-reduced-motion: no-preference) {
+    .pinkLogo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+    .pinkLogo:hover {
+      animation: App-logo-spin infinite 1s linear;
+      
+    }
+  }
+
+  .pinkLogo:active {
+    transform: scale(3);
+    
+  }

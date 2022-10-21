@@ -27,12 +27,12 @@
     display: flex;
     height: 100%;
     width: 100%;
+    margin-left:1rem;
 }
 
 h1 {
-
     font-weight: 200;
-    margin: 3vh 4vw;
+    margin: 3vh 1vw;
 }
 
 .logout-btn,
