@@ -19,3 +19,8 @@ form {
     display: flex;
     justify-content: center;
 }
+
+.search-btn {
+    background-color: #ed2590;
+    height: 3.7rem;
+}
