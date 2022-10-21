@@ -8,41 +8,24 @@ import EventDetails from "../EventDetails/EventDetails";
 import FriendsDashboard from "../FriendsDashboard/FriendsDashboard";
 import Status404 from "../../errorHandling/Status404";
 import InternalServerError from "../../errorHandling/InternalServerError";
-import SearchForm from "../../components/SearchForm/SearchForm"
-
-
+import SearchForm from "../../components/SearchForm/SearchForm";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState("");
   const [searchedEvents, setSearchedEvents] = useState([]);
-  const [foundEvent, setFoundEvent] = useState({});
+  // eslint-disable-next-line
   const [hasError404, setHasError404] = useState("");
-  //findDetails -> event card. viewDetails button invokes findDetails. SearchedEvents to set state. Searches through currentUsers events and searches through results to line up ids
 
   const findDetails = (id) => {
-    console.log(id);
-    
     let foundEvent;
-    // if (searchedEvents.length) {
-    //   foundEvent = searchedEvents.find((event) => event.ticketmasterId === id);
-    // } else {
-    //   foundEvent = currentUser.events.find(
-    //     (event) => event.ticketmasterId === id
-    //   );
-    // }
     let foundSearch = searchedEvents.find(
       (event) => event.ticketmasterId === id
     );
-    console.log(foundSearch);
-    
     let foundUser = currentUser.events.find(
       (event) => event.ticketmasterId === id
     );
-     console.log(foundUser);
     foundEvent = foundSearch ? foundSearch : foundUser;
-    console.log(foundEvent);
     return foundEvent;
-    // setFoundEvent(foundEvent)
   };
 
   return (
@@ -56,7 +39,6 @@ const App = () => {
             <SearchForm
               findDetails={findDetails}
               setSearchedEvents={setSearchedEvents}
-  
             />
           )}
         />
@@ -65,7 +47,6 @@ const App = () => {
           path="/:user"
           render={({ match }) => (
             <UserDashboard
-              //  user={match.params.user}
               findDetails={findDetails}
               setCurrentUser={setCurrentUser}
               setHasError404={setHasError404}

@@ -1,15 +1,13 @@
 .App {
   text-align: center;
-  background-image: url('../../images/bill-hamway-24Uv4wRJ95A-unsplash.jpg');
+  background-image: url("../../images/bill-hamway-24Uv4wRJ95A-unsplash.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
-  font-family: 'Inter', sans-serif;
-  font-weight:100;
-  /* overflow: hidden; */
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
   scroll-behavior: none;
-  /* height: 100%; */
 }
 
 button {
@@ -19,15 +17,15 @@ button {
   border: none;
   padding: 2vh 3vw;
   font-size: 20px;
-  background: rgba(0, 0, 0, .6);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
   transition: background 0.2s ease;
   border-radius: 3px;
 }
 
-button:hover{
-  background: rgba(255,255,255,0.7);
+button:hover {
+  background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 6px 20px rgb(93 93 93 / 50%);
   color: #262626;
 }
@@ -41,4 +39,3 @@ a:-webkit-any-link {
   color: inherit;
   cursor: pointer;
 }
-

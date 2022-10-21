@@ -1,13 +1,11 @@
 import React from "react";
 import EventCard from "../EventCard/EventCard";
-import './EventsContainer.css'
+import "./EventsContainer.css";
 
 const EventsContainer = ({ events }) => {
-console.log(events);
-
   const eventCards = events.map((event) => (
     <EventCard
-    key={event.ticketmasterId}
+      key={event.ticketmasterId}
       name={event.name}
       date={event.date}
       venue={event.venueName}
