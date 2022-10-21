@@ -1,43 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
+// eslint-disable-next-line
 import { CommentSection } from "react-comments-section";
 import { gql, useMutation } from "@apollo/client";
 import "react-comments-section/dist/index.css";
 import "./EventDetails.css";
 
-
-
 const CREATE_EVENT = gql`
-    mutation CreateEvent($input: CreateEventInput!) {
-        createEvent(input: $input) {
-          event {
-            name
-            ticketmasterId
-            buyTicketsUrl
-            image
-            date
-            time
-            venueName
-            city
-            state
-            address
-            longitude
-            latitude
-          } 
-        }
+  mutation CreateEvent($input: CreateEventInput!) {
+    createEvent(input: $input) {
+      event {
+        name
+        ticketmasterId
+        buyTicketsUrl
+        image
+        date
+        time
+        venueName
+        city
+        state
+        address
+        longitude
+        latitude
+      }
+    }
   }
 `;
 const EventDetails = ({ event, user, setCurrentUser }) => {
   // const [data, setData] = useState(event.comments);
 
-  // const attendees = event.attendees.map((attendee) => (
-  //   <div className="friend" key={attendee.name}>
-  //     <img src={attendee.image} alt={attendee.name} className="friend-image"/>
-  //     <p>{attendee.name}</p>
-  //   </div>
-  // ));
+  const attendees = event.attendees ? (
+    event.attendees.map((attendee) => (
+      <div className="friend" key={attendee.name}>
+        {/* <img src={attendee.image} alt={attendee.name} className="friend-image"/> */}
+        <p>{attendee.name}</p>
+      </div>
+    ))
+  ) : (
+    <p>Looks like no friends are attending yet.</p>
+  );
 
 
-  const [year, month, day] = event.date.split("-");
 
   const timeString12hr = new Date(
     "1970-01-01T" + event.time + "Z"
@@ -53,25 +55,27 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
   const handleButtonClick = () => {
     createEvent({
       variables: {
-        input: {
-          name: event.name,
-          ticketmasterId: event.ticketmasterId,
-          buyTicketsUrl: event.buyTicketsUrl,
-          image: event.image,
-          date: event.date,
-          time: event.time,
-          venueName: event.venueName,
-          city: event.city,
-          state: event.state,
-          address: event.address,
-          longitude: event.longitude,
-          latitude: event.latitude,
-        }
+        input: 
+        {... event}
+        // {
+        //   name: event.name,
+        //   ticketmasterId: event.ticketmasterId,
+        //   buyTicketsUrl: event.buyTicketsUrl,
+        //   image: event.image,
+        //   date: event.date,
+        //   time: event.time,
+        //   venueName: event.venueName,
+        //   city: event.city,
+        //   state: event.state,
+        //   address: event.address,
+        //   longitude: event.longitude,
+        //   latitude: event.latitude,
+        // },
       },
     });
-console.log(user);
-setCurrentUser({...user, events: [...user.events, event]})
-console.log(user);
+    console.log(user);
+    setCurrentUser({ ...user, events: [...user.events, event] });
+    console.log(user);
   };
 
   return (
@@ -82,7 +86,7 @@ console.log(user);
           <h3>{event.name.toUpperCase()}</h3>
           <br></br>
           <p>
-            {`${month}/${day}/${year}`}
+            {new Date(event.date).toDateString()}
             <br></br>
             {timeString12hr}
           </p>
@@ -105,14 +109,14 @@ console.log(user);
           ></iframe>
           <br></br>
           <br></br>
-          <a href={event.buyTicketsUrl} target="_blank">
+          <a href={event.buyTicketsUrl} target="_blank" rel="noreferrer">
             <u>Buy Tickets</u>
           </a>
         </div>
         <div className="friends-attending-details">
           <h3>FRIENDS ATTENDING:</h3>
           <br></br>
-          {/* {attendees} */}
+          {attendees}
         </div>
       </div>
       <button

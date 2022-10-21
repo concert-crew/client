@@ -20,6 +20,9 @@ const GET_USER = gql`
         address
         longitude
         latitude
+        attendees {
+          name
+        }
       }
     }
   }

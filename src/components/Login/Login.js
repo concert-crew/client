@@ -1,16 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
-import { Abby } from "../../sampleUser";
 
 const Login = () => {
   const [name, setName] = useState("");
-
-
-
-  // const handleClick = (e) => {
-  //   setCurrentUser(Abby);
-  // };
 
   return (
     <div className="login-form">
@@ -30,11 +23,7 @@ const Login = () => {
         <option value="Shirley">Shirley</option>
       </select>
       <Link to={`/${name}`}>
-        <button className="login-button" 
-        // onClick={(e) => handleClick(e)}
-        >
-          LOG IN
-        </button>
+        <button className="login-button">LOG IN</button>
       </Link>
     </div>
   );
