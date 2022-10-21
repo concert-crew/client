@@ -6,7 +6,7 @@ import "./UserDashboard.css";
 import { useParams } from "react-router-dom";
 import { useUser } from "../../hooks/useUser";
 import Status404 from "../../errorHandling/Status404";
-
+import { ProgressSpinner } from "../SpinLogo/SpinLogo";
 
 const UserDashboard = ({setCurrentUser, setHasError404}) => {
   // const [animate, setAnimate] = useState(false)
@@ -15,7 +15,7 @@ const UserDashboard = ({setCurrentUser, setHasError404}) => {
   const { data, error, loading } = useUser(user);
 
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return (<ProgressSpinner/>);
   if (error) return ( <Status404 setHasError404={setHasError404}/>);
   setCurrentUser(data.user)
 
