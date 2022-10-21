@@ -98,7 +98,7 @@ console.log(user);
             <br></br>
             {event.address}
             <br></br>
-            {event.city},{event.state}
+            {event.city}, {event.state}
           </p>
           <br></br>
 
@@ -121,7 +121,7 @@ console.log(user);
           {/* {attendees} */}
         </div>
       </div>
-      <button
+      <button className="postBtn"
         onClick={(e) => {
           e.preventDefault();
           handleButtonClick();

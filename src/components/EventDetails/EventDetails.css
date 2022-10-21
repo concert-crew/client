@@ -1,43 +1,5 @@
-.mapid wz-iframe-header__buttons>a{
- 
-}
-.mapid wz-iframe-header__content{
-   background: transparent !important;
-}
-
-.mapid wm-attribution-control{
-/* display: none !important; */
-background: transparent !important;
-justify-content: center;
-}
 
 
-.event-details-container {
-    display: flex;
-    justify-content: space-around;
-    margin: 2rem 0 5rem 0;
-    padding: 3.5rem 2rem;
-    width: 80%;
-    background: rgba(255, 255, 255, 0.4);
-}
-
-.details-page {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.details-text {
-    text-align: left;
-    margin: 1rem 0rem;
-    width: 33%;
-}
-
-.details-photo {
-    width: 33%;
-    object-fit: cover;
-    margin: 1rem;
-}
 
 .friends-attending-details {
     margin: 1rem;
@@ -83,3 +45,66 @@ justify-content: center;
 .hr-style {
     display: none;
 }
+
+ /* mobile */
+ @media (min-width: 320px) and (max-width: 989px) {
+    .event-details-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem .2rem 5rem .2rem;
+        padding: 1.5rem 1rem;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    .details-photo {
+        width: 90%;
+        object-fit: cover;
+    }
+
+    .details-page {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .details-text {
+        text-align: center;
+        margin-top: 1rem;
+        width: 80%;
+    }
+
+    .postBtn {
+        margin-bottom: 3rem;
+    }
+  }
+  /* ipad and laptops  */
+  @media (min-width: 990px) {
+    .event-details-container {
+        display: flex;
+        justify-content: space-around;
+        margin: 2rem 0 5rem 0;
+        padding: 3.5rem 2rem;
+        width: 80%;
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    .details-photo {
+        width: 33%;
+        object-fit: cover;
+        margin: 1rem;
+    }
+
+    .details-page {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .details-text {
+        text-align: left;
+        margin: 1rem 0rem;
+        width: 33%;
+    }
+  }
