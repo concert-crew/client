@@ -1,14 +1,7 @@
 .header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 7rem;
     position: sticky; top: 0;
     background: rgba(0, 0, 0, .6);
     font-family: 'Nova Square', cursive;
-    font-size: 1.7rem;
-    display: flex;
     overflow: none;
     z-index: 3;
 }
@@ -29,10 +22,7 @@
     margin-left:1rem;
 }
 
-h1 {
-    font-weight: 200;
-    margin: 3vh 1vw;
-}
+
 
 .logout-btn,
 .view-friends-btn,
@@ -59,3 +49,50 @@ h1 {
     margin: 1rem;
     justify-content: flex-end;
 }
+
+/* mobile */
+@media (min-width: 320px) and (max-width: 989px) {
+    h1 {
+        font-weight: 200;
+        margin: 3vh 1vw;
+    }
+
+    .header {
+        font-size: 1.3rem;
+    }
+
+    .h1-wrapper{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 0;
+    }
+  }
+  /* ipad and laptops  */
+  @media (min-width: 990px) {
+    h1 {
+        font-weight: 200;
+        margin: 3vh 1vw;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 7rem;
+        font-size: 1.7rem;
+        display: flex;
+        overflow: none;
+        z-index: 3;
+    }
+
+    .h1-wrapper{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        margin-left:1rem;
+    }
+  }
