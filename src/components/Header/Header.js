@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logout from "../../images/logout-icon.svg"
 import viewFriends from "../../images/friends_1.svg"
 import userIcon from "../../images/user-icon.svg"
-import SpinLogo from "../SpinLogo/SpinLogo";
+import {SpinLogo} from "../SpinLogo/SpinLogo";
 
 const Header = ({ user, signOut }) => {
 
