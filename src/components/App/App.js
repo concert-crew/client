@@ -61,7 +61,6 @@ const App = () => {
             <FriendsDashboard
               currentUser={currentUser}
               //this can be reduced to only passing the user obj rather than user and user events
-              users={users}
               findDetails={findDetails}
               events={currentUser.events}
             />
