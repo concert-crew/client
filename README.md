@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Concert Crew
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Table of Contents
+  - [Introduction](#introduction)
+  - [Technologies](#technologies)
+  - [Features](#features)
+  - [Possible Future Extensions](#possible-future-extensions)
+  - [Set Up](#set-up)
+  - [Organizational Resources](#organizational-resources)
+  - [Sources](#sources)
+  - [Contributors](#contributors)
+  - [Project Specs](#project-specs)
 
-In the project directory, you can run:
+## Introduction
+  - This application helps groups of friends connect over upcoming concerts. It was created with both a front-end and back-end team of Turing students utilizing React, Ruby on Rails, and GraphQL. 
 
-### `npm start`
+## Technologies
+  - React
+  - GraphQL
+  - Router
+  - Cypress
+  - Heroku
+  - Ruby on Rails
+  - JavaScript
+  - HTML
+  - CSS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Users can login and view a dashboard of upcoming events
+- Users can search for upcoming shows based off an artists name and add these shows to their upcoming events
+- Users can view details of each show including start time and date, location using an embedded map, a link to buy tickets, and which of their friends are attending
+- Users can view their friends upcoming shows
 
-### `npm test`
+## Possible Future Extensions
+- Add a shared calendar to that friends can easily see any upcoming events
+- Add OAuth for the login and allow users to add or delete friends
+- Allow for users to search for upcoming events based off of the date or other search criteria
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Set Up
+```
+git clone git@github.com:concert-crew/client.git
+npm install
+npm start
+```
+- [Deployed application](https://concert-crew.herokuapp.com/)
+- [Deployed API](https://concert-crew-be.herokuapp.com/graphql)
 
-### `npm run build`
+## Organizational Resources
+- [github project board](https://github.com/orgs/concert-crew/projects/1)
+- [planning](https://www.figma.com/file/3tjvGfhzHNGvn1FzqCetGu/Concert-Crew?node-id=0%3A1)
+- [design](https://www.figma.com/file/9ZWgvxj5zOwpqyGycZQYRG/Concert-Crew-Mood-Board?node-id=0%3A1)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Sources
+  - [MDN](http://developer.mozilla.org/en-US/)
+  - [W3Schools](https://www.w3schools.com/)
+  - [CSS-TRICKS](https://css-tricks.com/)
+  - [Cypress Docs](https://www.cypress.io/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Contributors
+  - [Abby Luce](https://github.com/abbyluce)
+  - [Joshua Medina](https://github.com/jrmedina)
+  - [Chantal Goethals](https://github.com/GOECHA)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Specs
+  - The project spec & rubric can be found [here](https://mod4.turing.edu/projects/capstone/)
