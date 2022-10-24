@@ -8,9 +8,6 @@ orbs:
 jobs:
   build_and_test:
     executor: node/default
-    test:
-      docker:
-        - image: cypress/base:10
     steps:
       - checkout
       - node/install-packages:
