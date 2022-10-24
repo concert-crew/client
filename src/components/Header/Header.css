@@ -1,14 +1,7 @@
 .header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 110px;
-    position: sticky; top: 0;
+    
     background: rgba(0, 0, 0, .6);
     font-family: 'Nova Square', cursive;
-    font-size: 26px;
-    display: flex;
     overflow: none;
     z-index: 3;
 }
@@ -19,8 +12,7 @@
     justify-content: flex-end;
     align-items: center;
     height: 100%;
-    width: 70%;
-    margin-right: 2rem;
+    width: 100%;
 }
 
 .h1-wrapper{
@@ -30,32 +22,78 @@
     margin-left:1rem;
 }
 
-h1 {
-    font-weight: 200;
-    margin: 3vh 1vw;
-}
+
 
 .logout-btn,
 .view-friends-btn,
 .dashboard-btn{
     display: flex;
-    width: 1.5rem;
+    width: 1.3rem;
     z-index: 3;
     margin-right: .2rem;
 }
 
 .view-friends-btn {
-    width: 2.7rem;
+    width: 2.2rem;
 }
 
 .nav-bar-text {
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
 }
 
 .icon-and-text {
     display: flex;
     align-items: center;
+    text-align: right;
     margin: 1rem;
-    width: 10rem;
+    justify-content: flex-end;
 }
+
+/* mobile */
+@media (min-width: 320px) and (max-width: 989px) {
+    h1 {
+        font-weight: 200;
+        margin: 3vh 1vw;
+    }
+
+    .header {
+        font-size: 1.3rem;
+    }
+
+    .h1-wrapper{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 0;
+    }
+  }
+  /* ipad and laptops  */
+  @media (min-width: 990px) {
+    h1 {
+        font-weight: 200;
+        margin: 3vh 1vw;
+    }
+
+    .header {
+        position: sticky; top: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 7rem;
+        font-size: 1.7rem;
+        display: flex;
+        overflow: none;
+        z-index: 3;
+    }
+
+    .h1-wrapper{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        margin-left:1rem;
+    }
+  }
