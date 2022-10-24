@@ -1,46 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import './EventCard.css'
-import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { PixiPlugin } from "gsap/PixiPlugin.js";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
+import "./EventCard.css";
 
-
-
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(PixiPlugin, MotionPathPlugin );
-
-const EventCard = ({name, date, venue, city, state, image, id}) => {
-    
-  const boxRef = useRef(null)
-
+const EventCard = ({ name, date, venue, city, state, image, id }) => {
   const [year, month, day] = date.split("-");
-  const dateDisplay = month && day && year ? `${month}/${day}/${year}` : `Multi-day Event`
-  
-
-  useEffect(() => {
-    gsap.to(".event-card", {
-    duration: 3,
-    motionPath: {
-      path: [{x:-500, y:0}, {x:0, y:0}, {x:0, y:0}, {x:0, y:0}],
-      type: "cubic"
-    }
-    })
-  }, [])
+  const dateDisplay =
+    month && day && year ? `${month}/${day}/${year}` : `Multi-day Event`;
 
   return (
-    <div
-      ref={boxRef}
-      className="event-card"
-      style={{
-        backgroundImage: `url(${image})`,
-        backgroundPosition: "top",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "325px 230px",
-        backgroundAttachment: "fixed",
-      }}
-    >
+    <div className="event-card">
       <p className="card-text">
         <b>{name.toUpperCase()}</b>
         <br></br>
@@ -53,7 +21,6 @@ const EventCard = ({name, date, venue, city, state, image, id}) => {
       </p>
       <Link to={`/event/${id}`}>
         <button className="view-details-button">VIEW DETAILS</button>
-        {/* May need to add an onClick fxn that querys event details with a event id param */}
       </Link>
     </div>
   );

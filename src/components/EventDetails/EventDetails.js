@@ -31,7 +31,7 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
   const attendees = event.attendees ? (
     event.attendees.map((attendee) => (
       <div className="friend" key={attendee.name}>
-        {/* <img src={attendee.image} alt={attendee.name} className="friend-image"/> */}
+        <img src={attendee.image} alt={attendee.name} className="friend-image"/>
         <p>{attendee.name}</p>
       </div>
     ))
@@ -39,7 +39,7 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
     <p>Looks like no friends are attending yet.</p>
   );
 
-
+  const [year, month, day] = date.split("-");
 
   let timeString12hr 
   if (!year && !month && !day) {
