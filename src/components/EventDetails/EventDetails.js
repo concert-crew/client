@@ -39,7 +39,7 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
     <p>Looks like no friends are attending yet.</p>
   );
 
-  const [year, month, day] = date.split("-");
+  const [year, month, day] = event.date.split("-");
 
   let timeString12hr 
   if (!year && !month && !day) {
