@@ -2,7 +2,7 @@ import React from "react";
 // eslint-disable-next-line
 // import { CommentSection } from "react-comments-section";
 import { gql, useMutation } from "@apollo/client";
-import "react-comments-section/dist/index.css";
+// import "react-comments-section/dist/index.css";
 import "./EventDetails.css";
 
 const CREATE_EVENT = gql`
