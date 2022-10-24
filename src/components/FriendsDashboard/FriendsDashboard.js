@@ -1,5 +1,4 @@
 import React from "react";
-import { useUser } from "../../hooks/useUser";
 import EventsContainer from "../EventsContainer/EventsContainer";
 import "./FriendsDashboard.css";
 const FriendsDashboard = ({ events, currentUser, users }) => {

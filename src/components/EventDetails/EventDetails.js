@@ -56,7 +56,7 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
     createEvent({
       variables: {
         input: 
-        {... event}
+        {...event}
         // {
         //   name: event.name,
         //   ticketmasterId: event.ticketmasterId,

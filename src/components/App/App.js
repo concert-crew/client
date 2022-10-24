@@ -15,7 +15,7 @@ const App = () => {
   const [searchedEvents, setSearchedEvents] = useState([]);
   // eslint-disable-next-line
   const [hasError404, setHasError404] = useState("");
-  const [users, setUsers] = useState(["Abby", "John", "Mayu", "Chantal", "Shirley"]);
+
 
   const findDetails = (id) => {
     let foundEvent;
