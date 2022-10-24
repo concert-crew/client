@@ -2,8 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.7
-  cypress: cypress-io/cypress@1
-  heroku: circleci/heroku@1.2.6
+  heroku: circleci/heroku@1.2.6 # Use the Heroku orb in your config
 
 jobs:
   build_and_test:
@@ -14,22 +13,21 @@ jobs:
           pkg-manager: npm
       - run:
           name: Run tests
-          command: cypress/run
-          yarn: true
-      - run : 
+          command: npm test
+      - run :
           name : Run build
           command: npm run build
       - persist_to_workspace:
           root: ~/project
           paths:
             - .
-  deploy:
+  deploy: # this can be any name you choose
     executor: heroku/default
     steps:
       - attach_workspace:
           at: ~/project
       - heroku/deploy-via-git:
-          force: true
+          force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
 
 workflows:
   test_my_app:
@@ -37,7 +35,7 @@ workflows:
       - build_and_test
       - deploy:
           requires:
-            - build_and_test
+            - build_and_test # only deploy if the build_and_test job has completed
           filters:
             branches:
-              only: main
+              only: main # only deploy when on main
