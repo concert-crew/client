@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import "./SearchForm.css"
 import EventsContainer from "../EventsContainer/EventsContainer"
-import { events } from "../../sampleEvents"
-import { createEvent } from '@testing-library/react'
 
 const SearchForm = ({setSearchedEvents}) => {
 const [artistName, setArtistName] = useState("");
