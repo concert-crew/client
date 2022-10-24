@@ -21,6 +21,7 @@ const CREATE_EVENT = gql`
         address
         longitude
         latitude
+        userId
       }
     }
   }
@@ -62,21 +63,22 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
     createEvent({
       variables: {
         input: 
-        {...event}
-        // {
-        //   name: event.name,
-        //   ticketmasterId: event.ticketmasterId,
-        //   buyTicketsUrl: event.buyTicketsUrl,
-        //   image: event.image,
-        //   date: event.date,
-        //   time: event.time,
-        //   venueName: event.venueName,
-        //   city: event.city,
-        //   state: event.state,
-        //   address: event.address,
-        //   longitude: event.longitude,
-        //   latitude: event.latitude,
-        // },
+        // {...event}
+        {
+          name: event.name,
+          ticketmasterId: event.ticketmasterId,
+          buyTicketsUrl: event.buyTicketsUrl,
+          image: event.image,
+          date: event.date,
+          time: event.time,
+          venueName: event.venueName,
+          city: event.city,
+          state: event.state,
+          address: event.address,
+          longitude: event.longitude,
+          latitude: event.latitude,
+          userId: parseInt(user.id)
+        },
       },
     });
     console.log(user);

@@ -59,7 +59,8 @@ const App = () => {
           render={() => (
             <FriendsDashboard
               findDetails={findDetails}
-              events={currentUser.events}
+              currentUser={currentUser}
+              setHasError404={setHasError404}
             />
           )}
         />
