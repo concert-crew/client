@@ -6,6 +6,10 @@ const GET_USER = gql`
       name
       id
       image
+      friends {
+        id
+        name
+      }
       events {
         id
         name
@@ -35,6 +39,8 @@ export const useUser = (name) => {
       name,
     },
   });
+
+console.log(`data`, data)
 
   return { data, error, loading };
 };
