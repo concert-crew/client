@@ -22,6 +22,7 @@ const GET_USER = gql`
         latitude
         attendees {
           name
+          image
         }
       }
     }
@@ -35,6 +36,7 @@ export const useUser = (name) => {
       name,
     },
   });
+console.log(data);
 
   return { data, error, loading };
 };

@@ -33,7 +33,7 @@ const Status404 = ({setCurrentUser}) => {
 
     return (
       <Status code={404}>
-        <ProgressSpinner />
+
         <>
           <div className='error-container'>
           <div className='logo-wrapper'>

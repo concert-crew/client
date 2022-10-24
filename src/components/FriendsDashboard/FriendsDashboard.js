@@ -1,7 +1,10 @@
 import React from "react";
+import { useUser } from "../../hooks/useUser";
 import EventsContainer from "../EventsContainer/EventsContainer";
 import "./FriendsDashboard.css";
-const FriendsDashboard = ({ events }) => {
+const FriendsDashboard = ({ events, currentUser, users }) => {
+
+
   return (
     <div className="friends-dash">
       <div className="friends-shows-title-wrapper">

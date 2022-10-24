@@ -31,7 +31,7 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
   const attendees = event.attendees ? (
     event.attendees.map((attendee) => (
       <div className="friend" key={attendee.name}>
-        {/* <img src={attendee.image} alt={attendee.name} className="friend-image"/> */}
+        <img src={attendee.image} alt={attendee.name} className="friend-image"/>
         <p>{attendee.name}</p>
       </div>
     ))

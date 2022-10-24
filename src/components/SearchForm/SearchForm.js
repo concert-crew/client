@@ -17,12 +17,14 @@ const handleChange = (e) => {
 const handleClick = (e) => {
   e.preventDefault()
 
-  fetch(`https://concert-crew-be.herokuapp.com/api/v1/events?keyword=${artistName}`)
-  .then(response => response.json())
-  .then(data => {
-    setResults(data.data.events)
-    setSearchedEvents(data.data.events)
-  })
+  artistName && fetch(
+    `https://concert-crew-be.herokuapp.com/api/v1/events?keyword=${artistName}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      setResults(data.data.events);
+      setSearchedEvents(data.data.events);
+    });
   setArtistName('')
 }
 

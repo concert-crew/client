@@ -15,6 +15,7 @@ const App = () => {
   const [searchedEvents, setSearchedEvents] = useState([]);
   // eslint-disable-next-line
   const [hasError404, setHasError404] = useState("");
+  const [users, setUsers] = useState(["Abby", "John", "Mayu", "Chantal", "Shirley"]);
 
   const findDetails = (id) => {
     let foundEvent;
@@ -58,6 +59,9 @@ const App = () => {
           path="/:user/friends"
           render={() => (
             <FriendsDashboard
+              currentUser={currentUser}
+              //this can be reduced to only passing the user obj rather than user and user events
+              users={users}
               findDetails={findDetails}
               events={currentUser.events}
             />
