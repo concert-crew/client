@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  cypress: cypress-io/cypress@1
   node: circleci/node@4.7
+  cypress: cypress-io/cypress@1
   heroku: circleci/heroku@1.2.6
 
 jobs:
@@ -15,6 +15,7 @@ jobs:
       - run:
           name: Run tests
           command: cypress/run
+          yarn: true
       - run : 
           name : Run build
           command: npm run build
