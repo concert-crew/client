@@ -40,8 +40,7 @@ export const useUser = (name) => {
     },
   });
 
-console.log(`ln43data`, data)
-console.log(`ln44error`, error)
+
 
   return { data, error, loading };
 };

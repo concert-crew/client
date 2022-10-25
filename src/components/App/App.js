@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Login from "../Login/Login";
 import Header from "../Header/Header";
@@ -39,7 +39,7 @@ const App = () => {
   const [searchedEvents, setSearchedEvents] = useState([]);
   // eslint-disable-next-line
   const [hasError404, setHasError404] = useState("");
-  const [friends, setFriends] = useState([])
+
 
   let { data, error, loading } = useQuery(GET_ALL_USERS);
 
