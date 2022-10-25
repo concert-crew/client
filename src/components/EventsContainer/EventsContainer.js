@@ -3,6 +3,9 @@ import EventCard from "../EventCard/EventCard";
 import "./EventsContainer.css";
 
 const EventsContainer = ({ events }) => {
+
+
+
   const eventCards = events.map((event) => (
     <EventCard
       key={event.ticketmasterId}
@@ -15,7 +18,11 @@ const EventsContainer = ({ events }) => {
       id={event.ticketmasterId}
     />
   ));
-  return <div className="events-container">{eventCards}</div>;
+  
+  return (
+   <div className="events-container">
+    {eventCards}
+    </div>);
 };
 
 export default EventsContainer;

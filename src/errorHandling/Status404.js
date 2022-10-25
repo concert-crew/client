@@ -6,7 +6,7 @@ import { gsap } from 'gsap/gsap-core';
 import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
 import { PixiPlugin } from "gsap/PixiPlugin.js";
 import { Link } from "react-router-dom";
-import { ProgressSpinner } from '../components/SpinLogo/SpinLogo'
+// import { ProgressSpinner } from '../components/SpinLogo/SpinLogo'
 
 gsap.registerPlugin(PixiPlugin, MotionPathPlugin );
 
@@ -33,7 +33,6 @@ const Status404 = ({setCurrentUser}) => {
 
     return (
       <Status code={404}>
-        <ProgressSpinner />
         <>
           <div className='error-container'>
           <div className='logo-wrapper'>

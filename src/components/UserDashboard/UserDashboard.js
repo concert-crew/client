@@ -7,7 +7,7 @@ import { useUser } from "../../hooks/useUser";
 import Status404 from "../../errorHandling/Status404";
 import { ProgressSpinner } from "../SpinLogo/SpinLogo";
 
-const UserDashboard = ({ setCurrentUser, setHasError404 }) => {
+const UserDashboard = ({ setCurrentUser, setHasError404}) => {
   const { user } = useParams();
   const { data, error, loading } = useUser(user);
 

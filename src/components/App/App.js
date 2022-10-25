@@ -9,12 +9,42 @@ import FriendsDashboard from "../FriendsDashboard/FriendsDashboard";
 import Status404 from "../../errorHandling/Status404";
 import InternalServerError from "../../errorHandling/InternalServerError";
 import SearchForm from "../../components/SearchForm/SearchForm";
+import { gql, useQuery } from "@apollo/client";
+import { ProgressSpinner } from "../SpinLogo/SpinLogo";
 
+const GET_ALL_USERS = gql`
+  query {
+    users {
+      name
+      events {
+        id
+        name
+        ticketmasterId
+        buyTicketsUrl
+        image
+        date
+        time
+        venueName
+        city
+        state
+        address
+        longitude
+        latitude
+      }
+    }
+  }
+`;
 const App = () => {
   const [currentUser, setCurrentUser] = useState("");
   const [searchedEvents, setSearchedEvents] = useState([]);
   // eslint-disable-next-line
   const [hasError404, setHasError404] = useState("");
+
+
+  let { data, error, loading } = useQuery(GET_ALL_USERS);
+
+  if (loading) return <ProgressSpinner />;
+  if (error) return <Status404 setHasError404={setHasError404} />;
 
   const findDetails = (id) => {
     let foundEvent;
@@ -28,9 +58,29 @@ const App = () => {
     return foundEvent;
   };
 
+
+
+  const findFriends = () => {
+    let matches = []
+    data.users.forEach((friend) => {
+    currentUser.friends.forEach((friend2) => {
+      if (friend.name === friend2.name) {
+        matches.push(friend.events)
+      }
+    });
+  });
+
+  setCurrentUser({...currentUser, friendEvents: matches.flat()});
+}
+
+
+
   return (
     <main className="App">
-      <Header user={currentUser} signOut={setCurrentUser} />
+      <Header user={currentUser} 
+      signOut={setCurrentUser}
+      findFriends ={findFriends}
+      />
       <Switch>
         <Route
           exact
@@ -59,7 +109,8 @@ const App = () => {
           render={() => (
             <FriendsDashboard
               findDetails={findDetails}
-              events={currentUser.events}
+              setHasError404={setHasError404}
+              currentUser={currentUser}
             />
           )}
         />
