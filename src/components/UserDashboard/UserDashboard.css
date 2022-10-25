@@ -5,8 +5,6 @@
     align-items: center;
     height: 100%;
     overflow: none;
-    position: sticky; bottom: 0;
-    z-index: 1;
 }
 
 .dash-btn{
@@ -16,13 +14,12 @@
 /* mobile */
 @media (min-width: 320px) and (max-width: 989px) {
     .upcoming-shows-title{
-        margin-top: 13rem;
+        margin-top: 3rem;
         text-align: center;
     }
     .upcoming-shows-title-wrapper {
         height: 18%;
         width: 100%;
-        margin-top: 6rem;
         margin-bottom: -3rem;
     }
 }

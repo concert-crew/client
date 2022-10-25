@@ -7,7 +7,7 @@ import "./FriendsDashboard.css";
 
 const FriendsDashboard = ({ currentUser, setHasError404, friends }) => {
  
-
+console.log(friends)
 
 
   return (
