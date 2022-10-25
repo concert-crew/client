@@ -65,12 +65,12 @@ const App = () => {
     data.users.forEach((friend) => {
     currentUser.friends.forEach((friend2) => {
       if (friend.name === friend2.name) {
-        matches.push(friend)
+        matches.push(friend.events)
       }
     });
   });
 
-  setFriends(matches)
+  setCurrentUser({...currentUser, friendEvents: matches.flat()});
 }
 
 
@@ -110,7 +110,7 @@ const App = () => {
             <FriendsDashboard
               findDetails={findDetails}
               setHasError404={setHasError404}
-              friends={friends}
+              currentUser={currentUser}
             />
           )}
         />
