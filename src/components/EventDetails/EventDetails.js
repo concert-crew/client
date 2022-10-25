@@ -28,11 +28,14 @@ const CREATE_EVENT = gql`
 `;
 const EventDetails = ({ event, user, setCurrentUser }) => {
   // const [data, setData] = useState(event.comments);
-
   const attendees = event.attendees ? (
     event.attendees.map((attendee) => (
       <div className="friend" key={attendee.name}>
-        <img src={attendee.image} alt={attendee.name} className="friend-image"/>
+        <img
+          src={attendee.image}
+          alt={attendee.name}
+          className="friend-image"
+        />
         <p>{attendee.name}</p>
       </div>
     ))
@@ -42,43 +45,42 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
 
   const [year, month, day] = event.date.split("-");
 
-  let timeString12hr 
+  let timeString12hr;
   if (!year && !month && !day) {
-    timeString12hr = "Multi Day Event"
+    timeString12hr = "Multi Day Event";
   } else {
     timeString12hr = new Date(
-    "1970-01-01T" + event.time + "Z"
-  ).toLocaleTimeString("en-US", {
-    timeZone: "UTC",
-    hour12: true,
-    hour: "numeric",
-    minute: "numeric",
-  });
-}
-    
+      "1970-01-01T" + event.time + "Z"
+    ).toLocaleTimeString("en-US", {
+      timeZone: "UTC",
+      hour12: true,
+      hour: "numeric",
+      minute: "numeric",
+    });
+  }
 
   const [createEvent] = useMutation(CREATE_EVENT);
 
   const handleButtonClick = () => {
     createEvent({
       variables: {
-        input: 
-        // {...event}
-        {
-          name: event.name,
-          ticketmasterId: event.ticketmasterId,
-          buyTicketsUrl: event.buyTicketsUrl,
-          image: event.image,
-          date: event.date,
-          time: event.time,
-          venueName: event.venueName,
-          city: event.city,
-          state: event.state,
-          address: event.address,
-          longitude: event.longitude,
-          latitude: event.latitude,
-          userId: parseInt(user.id)
-        },
+        input:
+          // {...event}
+          {
+            name: event.name,
+            ticketmasterId: event.ticketmasterId,
+            buyTicketsUrl: event.buyTicketsUrl,
+            image: event.image,
+            date: event.date,
+            time: event.time,
+            venueName: event.venueName,
+            city: event.city,
+            state: event.state,
+            address: event.address,
+            longitude: event.longitude,
+            latitude: event.latitude,
+            userId: parseInt(user.id),
+          },
       },
     });
     console.log(user);
@@ -127,7 +129,8 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
           {attendees}
         </div>
       </div>
-      <button className="postBtn"
+      <button
+        className="postBtn"
         onClick={(e) => {
           e.preventDefault();
           handleButtonClick();

@@ -26,6 +26,7 @@ const GET_USER = gql`
         latitude
         attendees {
           name
+          image
         }
       }
     }
