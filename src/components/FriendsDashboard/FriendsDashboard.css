@@ -5,8 +5,8 @@
     align-items: center;
     height: 100%;
     overflow: none;
-    position: sticky; bottom: 0;
-    z-index: 1;
+    /* position: sticky; bottom: 0; */
+    /* z-index: 1; */
 }
 
 .friends-shows-title-wrapper {
