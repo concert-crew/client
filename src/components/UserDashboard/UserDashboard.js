@@ -3,7 +3,7 @@ import EventsContainer from "../EventsContainer/EventsContainer";
 import { Link } from "react-router-dom";
 import "./UserDashboard.css";
 import { useParams } from "react-router-dom";
-import { useUser } from "../../hooks/useUser";
+import { useUser } from "../../utilities/hooks/useUser"
 import Status404 from "../../errorHandling/Status404";
 import { ProgressSpinner } from "../SpinLogo/SpinLogo";
 

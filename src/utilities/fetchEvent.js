@@ -6,7 +6,9 @@ const fetchEvent = async (artistName) => {
     const json = await response.json();
     return json;
   } catch (error) {
-    console.log("error", error);
+    console.log(error);
+    
+    return error;
   }
 };
 

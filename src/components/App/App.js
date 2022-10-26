@@ -52,11 +52,14 @@ const App = () => {
     let foundUser = currentUser.events.find(
       (event) => event.ticketmasterId === id
     );
-    let foundFriend = currentUser.friendEvents.find(
-      (event) => event.ticketmasterId === id
-    );
+
+    if (foundSearch === undefined && foundUser === undefined) {
+      foundEvent = currentUser.friendEvents.find(
+        (event) => event.ticketmasterId === id
+      );
+    }
     foundEvent = foundSearch ? foundSearch : foundUser;
-    return foundEvent || foundFriend;
+    return foundEvent 
   };
 
   const findFriends = () => {

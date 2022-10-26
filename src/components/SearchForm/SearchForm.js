@@ -21,6 +21,7 @@ const SearchForm = ({ setSearchedEvents }) => {
             setMessage("");
           } else {
             setMessage("No events found . . .");
+            setResults([]);
           }
         })
       : setMessage("Please type in an artist");

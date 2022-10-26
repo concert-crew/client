@@ -44,8 +44,8 @@ const Status404 = () => {
             </Link>
           </div>
           <div className="error-text-wrapper">
-            <h2 className="sorry">Sorry,</h2>
-            <h2 className="sorry">can't find that.</h2>
+            <h2 className="sorry">There's</h2>
+            <h2 className="sorry">a scratch in the record.</h2>
             <h3 ref={boxRef} className="error-404">
               404
             </h3>

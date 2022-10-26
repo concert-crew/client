@@ -19,7 +19,7 @@ const Header = ({ user, signOut, findFriends }) => {
           <h3 className="nav-bar-text">Back to Dashboard</h3>
         </div>
       </Link>
-      <Link to={`${user.name}/friends`}>
+      <Link to={`/${user.name}/friends`}>
         <div className="icon-and-text" onClick={() => findFriends()}>
           <img
             className="view-friends-btn"
