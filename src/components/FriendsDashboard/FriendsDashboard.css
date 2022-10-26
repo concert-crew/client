@@ -1,15 +1,31 @@
-.friends-dash{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    overflow: none;
-    position: sticky; bottom: 0;
-    z-index: 1;
+.friends-dash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  overflow: none;
 }
 
-.friends-shows-title-wrapper {
+/* mobile */
+@media (min-width: 320px) and (max-width: 989px) {
+  .friends-shows-title {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  .friends-shows-title-wrapper {
+    height: 18%;
+    width: 100%;
+    margin-bottom: -3rem;
+  }
+}
+/* ipad and laptops  */
+@media (min-width: 990px) {
+  .friends-shows-title {
+    display: flex;
+    margin-left: 4rem;
+  }
+  .friends-shows-title-wrapper {
     display: flex;
     height: 15%;
     width: 100%;
@@ -18,9 +34,5 @@
     padding-left: 15rem;
     margin-top: 3rem;
     margin-bottom: -3rem;
-}
-
-.friends-shows-title{
-    display: flex;
-    margin-left: 4rem;
+  }
 }

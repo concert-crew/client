@@ -15,7 +15,8 @@ const EventsContainer = ({ events }) => {
       id={event.ticketmasterId}
     />
   ));
-  return <div className="events-container">{eventCards}</div>;
+
+  return <div className="events-container">{eventCards.reverse()}</div>;
 };
 
 export default EventsContainer;
