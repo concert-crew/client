@@ -1,15 +1,19 @@
-.error-500-container{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../images/error404-background.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: 'Inter', sans-serif;
-    font-weight:100;
-    overflow: none;
-    scroll-behavior: none;
-    height: 100vh;
-    padding: 3rem;
+.error-500-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("../images/error404-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
+  overflow: none;
+  scroll-behavior: none;
+  height: 100vh;
+  padding: 3rem;
 }

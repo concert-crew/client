@@ -1,8 +1,5 @@
-import React from "react";
-// eslint-disable-next-line
-import { CommentSection } from "react-comments-section";
+import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
-import "react-comments-section/dist/index.css";
 import "./EventDetails.css";
 
 const CREATE_EVENT = gql`
@@ -26,8 +23,12 @@ const CREATE_EVENT = gql`
     }
   }
 `;
+
 const EventDetails = ({ event, user, setCurrentUser }) => {
-  // const [data, setData] = useState(event.comments);
+  const [add, setAdd] = useState(false);
+
+  const [createEvent] = useMutation(CREATE_EVENT);
+  const [year, month, day] = event.date.split("-");
   const attendees = event.attendees ? (
     event.attendees.map((attendee) => (
       <div className="friend" key={attendee.name}>
@@ -43,49 +44,28 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
     <p>Looks like no friends are attending yet.</p>
   );
 
-  const [year, month, day] = event.date.split("-");
+  const time =
+    !year && !month && !day
+      ? "Multi Day Event"
+      : new Date("1970-01-01T" + event.time + "Z").toLocaleTimeString("en-US", {
+          timeZone: "UTC",
+          hour12: true,
+          hour: "numeric",
+          minute: "numeric",
+        });
 
-  let timeString12hr;
-  if (!year && !month && !day) {
-    timeString12hr = "Multi Day Event";
-  } else {
-    timeString12hr = new Date(
-      "1970-01-01T" + event.time + "Z"
-    ).toLocaleTimeString("en-US", {
-      timeZone: "UTC",
-      hour12: true,
-      hour: "numeric",
-      minute: "numeric",
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    setAdd(true);
+    setCurrentUser({
+      ...user,
+      events: [...user.events, event],
     });
-  }
-
-  const [createEvent] = useMutation(CREATE_EVENT);
-
-  const handleButtonClick = () => {
     createEvent({
       variables: {
-        input:
-          // {...event}
-          {
-            name: event.name,
-            ticketmasterId: event.ticketmasterId,
-            buyTicketsUrl: event.buyTicketsUrl,
-            image: event.image,
-            date: event.date,
-            time: event.time,
-            venueName: event.venueName,
-            city: event.city,
-            state: event.state,
-            address: event.address,
-            longitude: event.longitude,
-            latitude: event.latitude,
-            userId: parseInt(user.id),
-          },
+        input: { ...event, userId: parseInt(user.id) },
       },
     });
-    console.log(user);
-    setCurrentUser({ ...user, events: [...user.events, event] });
-    console.log(user);
   };
 
   return (
@@ -98,7 +78,7 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
           <p>
             {new Date(event.date).toDateString()}
             <br></br>
-            {timeString12hr}
+            {time}
           </p>
           <br></br>
           <p>
@@ -132,23 +112,13 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
       <button
         className="postBtn"
         onClick={(e) => {
-          e.preventDefault();
-          handleButtonClick();
+          handleButtonClick(e);
         }}
+        disabled={add}
       >
         ADD SHOW TO YOUR EVENTS
       </button>
-      <div className="comments-section">
-        {/* <CommentSection
-        currentUser={{
-          currentUserId: user.id,
-          currentUserImg: user.image,
-          currentUserFullName: user.name,
-        }}
-        commentData={data}
-        onSubmitAction={(newData) => setData([...data, newData])}
-      /> */}
-      </div>
+      {add && <p>This event has been added!</p>}
     </div>
   );
 };

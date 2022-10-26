@@ -1,91 +1,90 @@
-*{
-    margin: 0%;
-    }
-    
-    .error-container{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../images/error404-background.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        font-family: 'Inter', sans-serif;
-        font-weight:100;
-        /* overflow: none; */
-        scroll-behavior: none;
-        position: fixed;
-        padding: 3rem;
-    }
-    
-    .error-text-wrapper{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 40%;
-        margin-top: 4rem;
-    }
-    
-    .sorry {
-        display: flex;
-        color: black;
-        font-size: 60pt;
-        margin-top: 20px;
-        margin-bottom: -20px;
-        margin-left: 30px;
-        width: 600px;
-    }
-    
-    
-    .error-404 {
-        display: flex;
-        color: white;
-        font-size: 15rem;
-        margin-left: 150px;
-        text-decoration: solid 1px black;
-    }
-    
+* {
+  margin: 0%;
+}
 
-    @keyframes App-logo-spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      } 
-    
-      @media (prefers-reduced-motion: no-preference) {
-        .logo-404 {
-          animation: App-logo-spin infinite 20s linear;
-        }
-      }
+.error-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("../images/error404-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
+  /* overflow: none; */
+  scroll-behavior: none;
+  position: fixed;
+  padding: 3rem;
+}
 
-    .logo-wrapper{
-        margin-left: 4rem;
-        margin-right: -15rem;
-        margin-bottom: 4rem;
-    }
+.error-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40%;
+  margin-top: 4rem;
+}
 
-   .logo-404{
-      height: 15%;
-      position: absolute;
-      cursor: pointer;
-   }
+.sorry {
+  display: flex;
+  color: black;
+  font-size: 60pt;
+  margin-top: 20px;
+  margin-bottom: -20px;
+  margin-left: 30px;
+  width: 600px;
+}
 
+.error-404 {
+  display: flex;
+  color: white;
+  font-size: 15rem;
+  margin-left: 150px;
+  text-decoration: solid 1px black;
+}
 
-   @media (prefers-reduced-motion: no-preference) {
-    .logo-404:hover {
-      animation: App-logo-spin infinite 1s linear;
-      
-    }
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-
-  .logo-404:active {
-    transform: scale(3);
-    
+  to {
+    transform: rotate(360deg);
   }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo-404 {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.logo-wrapper {
+  margin-left: 4rem;
+  margin-right: -15rem;
+  margin-bottom: 4rem;
+}
+
+.logo-404 {
+  height: 15%;
+  position: absolute;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo-404:hover {
+    animation: App-logo-spin infinite 1s linear;
+  }
+}
+
+.logo-404:active {
+  transform: scale(3);
+}

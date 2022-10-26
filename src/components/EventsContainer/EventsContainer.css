@@ -1,39 +1,39 @@
 .cards::-webkit-scrollbar {
-    height: 12px;
-  }
-
-  /* mobile */
-@media (min-width: 320px) and (max-width: 989px) {
-    .events-container {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.4);
-        padding: 2rem;
-        width: 70%;
-        margin-top: 2rem;
-        margin-bottom: 2.5rem;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-    }
+  height: 12px;
 }
-  /* ipad and laptops  */
-  @media (min-width: 990px) {
-    .events-container {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.4);
-        height: 80%;
-        padding: 4rem 3rem;
-        width: 70%;
-        margin-top: 2rem;
-        margin-bottom: 2.5rem;
-        overflow-x: scroll;
-        overflow-y: hidden;
-        white-space: nowrap;
-        /* -webkit-overflow-scrolling: touch; */
-    }
+
+/* mobile */
+@media (min-width: 320px) and (max-width: 989px) {
+  .events-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 2rem;
+    width: 70%;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
   }
+}
+/* ipad and laptops  */
+@media (min-width: 990px) {
+  .events-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.4);
+    height: 80%;
+    padding: 4rem 3rem;
+    width: 70%;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    /* -webkit-overflow-scrolling: touch; */
+  }
+}

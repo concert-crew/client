@@ -39,10 +39,7 @@ const App = () => {
   const [searchedEvents, setSearchedEvents] = useState([]);
   // eslint-disable-next-line
   const [hasError404, setHasError404] = useState("");
-
-
-  let { data, error, loading } = useQuery(GET_ALL_USERS);
-
+  const { data, error, loading } = useQuery(GET_ALL_USERS);
   if (loading) return <ProgressSpinner />;
   if (error) return <Status404 setHasError404={setHasError404} />;
 
@@ -54,32 +51,38 @@ const App = () => {
     let foundUser = currentUser.events.find(
       (event) => event.ticketmasterId === id
     );
+
+    if (foundSearch === undefined && foundUser === undefined) {
+      foundEvent = currentUser.friendEvents.find(
+        (event) => event.ticketmasterId === id
+      );
+      return foundEvent;
+    }
     foundEvent = foundSearch ? foundSearch : foundUser;
     return foundEvent;
   };
 
-
-
   const findFriends = () => {
-    let matches = []
-    data.users.forEach((friend) => {
-    currentUser.friends.forEach((friend2) => {
-      if (friend.name === friend2.name) {
-        matches.push(friend.events)
-      }
+    let matches = [];
+    data.users.forEach((user) => {
+      currentUser.friends.forEach((friend) => {
+        if (user.name === friend.name) {
+          matches.push(user.events);
+        }
+      });
     });
-  });
 
-  setCurrentUser({...currentUser, friendEvents: matches.flat()});
-}
-
-
+    setCurrentUser({ ...currentUser, friendEvents: matches.flat() });
+  };
 
   return (
     <main className="App">
-      <Header user={currentUser} 
-      signOut={setCurrentUser}
-      findFriends ={findFriends}
+      <Header
+        user={currentUser}
+        signOut={setCurrentUser}
+        findFriends={findFriends}
+        setCurrentUser={setCurrentUser}
+        setHasError404={setHasError404}
       />
       <Switch>
         <Route
@@ -97,6 +100,7 @@ const App = () => {
           path="/:user"
           render={({ match }) => (
             <UserDashboard
+              currentUser={currentUser}
               findDetails={findDetails}
               setCurrentUser={setCurrentUser}
               setHasError404={setHasError404}

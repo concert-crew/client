@@ -1,15 +1,10 @@
+
+
 import React from "react";
 import EventsContainer from "../EventsContainer/EventsContainer";
 import "./FriendsDashboard.css";
 
-
-
-
-const FriendsDashboard = ({ currentUser, setHasError404, friends }) => {
- 
-console.log(friends)
-
-
+const FriendsDashboard = ({ currentUser }) => {
   return (
     <div className="friends-dash">
       <div className="friends-shows-title-wrapper">

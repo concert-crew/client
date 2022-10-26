@@ -1,26 +1,26 @@
 input {
-    border: none;
-    height: 3.45rem;
-    width: 20rem;
-    font-size: 20px;
-    margin-right: .5rem;
-    border-radius: 3px;
+  border: none;
+  height: 3.45rem;
+  width: 20rem;
+  font-size: 20px;
+  margin-right: 0.5rem;
+  border-radius: 3px;
 }
 
 form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem;
 }
 
 .search-results-container {
-    text-align: center;
-    display: flex;
-    justify-content: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .search-btn {
-    background-color: #ed2590;
-    height: 3.7rem;
+  background-color: #ed2590;
+  height: 3.7rem;
 }

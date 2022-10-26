@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchForm.css";
 import EventsContainer from "../EventsContainer/EventsContainer";
-
+import { fetchEvent } from "../../utilities/fetchEvent";
 const SearchForm = ({ setSearchedEvents }) => {
   const [artistName, setArtistName] = useState("");
   const [results, setResults] = useState([]);
@@ -14,20 +14,16 @@ const SearchForm = ({ setSearchedEvents }) => {
   const handleClick = (e) => {
     e.preventDefault();
     artistName
-      ? fetch(
-          `https://concert-crew-be-v2.herokuapp.com/api/v1/events?keyword=${artistName}`
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(`data.data.events`, data.errors);
-            if (!data.errors) {
-              setResults(data.data.events);
-              setSearchedEvents(data.data.events);
-              setMessage("");
-            } else {
-              setMessage("No events found . . .");
-            }
-          })
+      ? fetchEvent(artistName).then((data) => {
+          if (!data.errors) {
+            setResults(data.data.events);
+            setSearchedEvents(data.data.events);
+            setMessage("");
+          } else {
+            setMessage("No events found . . .");
+            setResults([]);
+          }
+        })
       : setMessage("Please type in an artist");
     setArtistName("");
   };
