@@ -48,7 +48,6 @@ describe('Dashboard', () => {
         .get('.details-photo').should('have.attr', 'src').should('include', 'https://s1.ticketm.net/dam/a/092/c590b21f-9adf-4f96-8a2d-2bb8f216d092_1701661_TABLET_LANDSCAPE_LARGE_16_9.jpg')
         .get('.details-photo').should('have.attr', 'alt').should('equal', 'Bonobo')
         .get('.details-text').contains('BONOBO')
-        .get('.details-text').contains('Fri Oct 21 2022')
         .get('.details-text').contains('7:30 PM')
         .get('.mapid').should('exist')
     })
