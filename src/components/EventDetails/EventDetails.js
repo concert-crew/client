@@ -68,6 +68,24 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
     });
   };
 
+  // const displayButton = () => {
+  //   event.attendees && event.attendees.forEach((attendee) => {
+  //     if (attendee.name !== user.name) {
+  //       return (
+  //         <button
+  //           className="postBtn"
+  //           onClick={(e) => {
+  //             handleButtonClick(e);
+  //           }}
+  //           disabled={add}
+  //         >
+  //           ADD SHOW TO YOUR EVENTS
+  //         </button>
+  //       );
+  //     }
+  //   });
+  // };
+
   return (
     <div className="details-page">
       <div className="event-details-container">
@@ -104,11 +122,12 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
           </a>
         </div>
         <div className="friends-attending-details">
-          <h3>FRIENDS ATTENDING:</h3>
+          <h3>ATTENDING:</h3>
           <br></br>
           {attendees}
         </div>
       </div>
+      {add && <p>This event has been added!</p>}
       <button
         className="postBtn"
         onClick={(e) => {
@@ -118,7 +137,6 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
       >
         ADD SHOW TO YOUR EVENTS
       </button>
-      {add && <p>This event has been added!</p>}
     </div>
   );
 };
