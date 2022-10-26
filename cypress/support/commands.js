@@ -1,7 +1,6 @@
 import { aliasQuery, hasOperationName } from "../utils/graphql-test-utils";
 
 Cypress.Commands.add("selectUser", () => {
-<<<<<<< HEAD
   cy.visit("http://localhost:3000/");
   cy.intercept(
     "POST",
@@ -112,7 +111,6 @@ Cypress.Commands.add("selectUser", () => {
     }
   ).as("getUser");
 });
-=======
     cy.visit("http://localhost:3000/");
     cy.intercept(
       "POST",
@@ -220,4 +218,3 @@ Cypress.Commands.add("selectUser", () => {
     ).as("getUser");
   });
 
->>>>>>> main
