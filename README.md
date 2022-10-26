@@ -1,5 +1,6 @@
 # Concert Crew
 
+![Screen Shot 2022-10-26 at 3 55 44 PM](https://user-images.githubusercontent.com/100726140/198146488-f69fc6aa-4b0a-4b2c-8c8e-30eb25eb5092.png)
 
 ## Table of Contents
   - [Introduction](#introduction)
@@ -27,6 +28,9 @@
   - CSS
 
 ## Features
+
+![Screen Shot 2022-10-26 at 3 54 45 PM](https://user-images.githubusercontent.com/100726140/198146377-c6941fe8-56fe-478b-85ee-283e80c9c99c.png)
+![Screen Shot 2022-10-26 at 3 57 03 PM](https://user-images.githubusercontent.com/100726140/198146625-dea9aa2c-0709-4d0d-9d1e-720a15ae5c07.png)
 
 - Users can login and view a dashboard of upcoming events
 - Users can search for upcoming shows based off an artists name and add these shows to their upcoming events
