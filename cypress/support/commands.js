@@ -1,4 +1,4 @@
-import { aliasQuery, hasOperationName } from "../utils/graphql-test-utils";
+import { aliasQuery } from "../utils/graphql-test-utils";
 
 Cypress.Commands.add("selectUser", () => {
   cy.visit("http://localhost:3000/");

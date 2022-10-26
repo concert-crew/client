@@ -9,37 +9,17 @@ import FriendsDashboard from "../FriendsDashboard/FriendsDashboard";
 import Status404 from "../../errorHandling/Status404";
 import InternalServerError from "../../errorHandling/InternalServerError";
 import SearchForm from "../../components/SearchForm/SearchForm";
-import { gql, useQuery } from "@apollo/client";
 import { ProgressSpinner } from "../SpinLogo/SpinLogo";
+import { useUsers } from "../../utilities/hooks/useUsers";
 
-const GET_ALL_USERS = gql`
-  query {
-    users {
-      name
-      events {
-        id
-        name
-        ticketmasterId
-        buyTicketsUrl
-        image
-        date
-        time
-        venueName
-        city
-        state
-        address
-        longitude
-        latitude
-      }
-    }
-  }
-`;
 const App = () => {
-  const [currentUser, setCurrentUser] = useState("");
-  const [searchedEvents, setSearchedEvents] = useState([]);
   // eslint-disable-next-line
   const [hasError404, setHasError404] = useState("");
-  const { data, error, loading } = useQuery(GET_ALL_USERS);
+  const [currentUser, setCurrentUser] = useState("");
+  const [searchedEvents, setSearchedEvents] = useState([]);
+  const { data, error, loading } = useUsers();
+
+  
   if (loading) return <ProgressSpinner />;
   if (error) return <Status404 setHasError404={setHasError404} />;
 
@@ -98,7 +78,7 @@ const App = () => {
         <Route
           exact
           path="/:user"
-          render={({ match }) => (
+          render={() => (
             <UserDashboard
               currentUser={currentUser}
               findDetails={findDetails}

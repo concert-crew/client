@@ -1,15 +1,9 @@
 import { gql, useQuery } from "@apollo/client";
 
-const GET_USER = gql`
-  query GetUser($name: String!) {
-    user(name: $name) {
+const GET_ALL_USERS = gql`
+  query {
+    users {
       name
-      id
-      image
-      friends {
-        id
-        name
-      }
       events {
         id
         name
@@ -24,23 +18,15 @@ const GET_USER = gql`
         address
         longitude
         latitude
-        attendees {
-          name
-          image
-        }
       }
     }
   }
 `;
 
-export const useUser = (name) => {
-  const { data, error, loading } = useQuery(GET_USER, {
-    variables: {
-      name,
-    },
-  });
 
 
+export const useUsers = () => {
+  const { data, error, loading } = useQuery(GET_ALL_USERS);
 
   return { data, error, loading };
 };
