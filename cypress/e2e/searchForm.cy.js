@@ -31,6 +31,19 @@ describe('Dashboard', () => {
         .get('.search-results-container').contains('No events found . . .')
     })
 
+    it('should be able to view event details of searched shows and add this show to their event, event should be added to the user dashboard', () => {
+      cy.get('.login-selection').select('Abby')
+        .get('.login-button').click().wait(1000)
+        .get('.dash-btn').click()
+        .get('input').type('John Summit')
+        .get('.search-btn').click()
+        .get('.view-details-button').last().click()
+        .get('.postBtn').click()
+        .get('p').last().contains('This event has been added!')
+        .get('.dashboard-btn').click()
+        .get('.event-card').first().contains('JOHN SUMMIT')
+    })
+
   })
 
 

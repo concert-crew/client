@@ -2,7 +2,7 @@
       "events": [
         {
           "name": "John Summit",
-          "id": "Z7r9jZ1A555",
+          "ticketmasterId": "Z7r9jZ1A555",
           "buyTicketsUrl": "https://www.ticketmaster.com/event/Z7r9jZ1AdogZP",
           "image": "https://images.sk-static.com/images/media/img/col3/20190609-002228-820690.jpg",
           "date": "2022-12-22", 
@@ -12,24 +12,12 @@
           "state": "CO",
           "address": "123 Brighton",
           "longitude": "-118.292",
-          "latitude": "34.125198",
-          "attendees": [
-            {
-              "name": "John",
-              "image":
-                "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png"
-            },
-            {
-              "name": "Chantal",
-              "image":
-                "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png"
-            }
-          ]
+          "latitude": "34.125198"
         },
         {
 
             "name": "John Summit",
-            "id": "G5viZ92D6GG",
+            "ticketmasterId": "G5viZ92D6GG",
             "buyTicketsUrl": "https://www.ticketmaster.com/liquid-stranger-new-orleans-louisiana-10-28-2022/event/1B005CFEC7694EF8",
             "image": "https://images.sk-static.com/images/media/img/col3/20190609-002228-820690.jpg",
             "date": "2022-12-29", 
@@ -39,24 +27,7 @@
             "state": "CO",
             "address": "1000 Colfax Ave.",
             "longitude": "39.776260019308395",
-            "latitude": "-104.96915584167645",
-          "attendees": [
-            {
-              "name": "John",
-              "image":
-                "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png"
-            },
-            {
-              "name": "Shirley",
-              "image":
-                "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png"
-            },
-            {
-              "name": "Josh",
-              "image":
-                "https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png"
-            }
-          ]
+            "latitude": "-104.96915584167645"
         }
         ]
       }
