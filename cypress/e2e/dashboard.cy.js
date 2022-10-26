@@ -1,6 +1,6 @@
 import { aliasQuery, hasOperationName } from '../utils/graphql-test-utils'
 
-describe('Homepage', () => {
+describe('Dashboard', () => {
     beforeEach(() => {
       cy.selectUser()
     })
@@ -17,6 +17,12 @@ describe('Homepage', () => {
         .get('.login-button').click().wait(1000)
     })
 
+    it('should not be able to login if a user is not selected', () => {
+      cy.url().should("be.equal", 'http://localhost:3000/')
+        .get('.login-button').click().wait(1000)
+        .url().should("be.equal", 'http://localhost:3000/')
+    })
+
     it('should see a user\s dashboard after login with upcoming events', () => {
       cy.get('.login-selection').select('Abby')
         .get('.login-button').click().wait(1000)
@@ -28,21 +34,20 @@ describe('Homepage', () => {
       cy.get('.login-selection').select('Abby')
         .get('.login-button').click().wait(1000)
         .url().should("be.equal", 'http://localhost:3000/Abby')
-        .get('.event-card').first().contains('BONOBO')
-        .get('.card-text').first().contains('10/22/2022')
-        .get('.card-text').first().contains('Greek Theatre')
-        .get('.card-text').first().contains('Los Angeles, CA')
+        .get('.event-card').last().contains('BONOBO')
+        .get('.card-text').last().contains('10/22/2022')
+        .get('.card-text').last().contains('Greek Theatre')
+        .get('.card-text').last().contains('Los Angeles, CA')
     })
 
     it('should be able to view event details', () => {
       cy.get('.login-selection').select('Abby')
         .get('.login-button').click().wait(1000)
-        .get('.view-details-button').first().click()
+        .get('.view-details-button').last().click()
         .url().should("be.equal", 'http://localhost:3000/event/Z7r9jZ1AdogZP')
         .get('.details-photo').should('have.attr', 'src').should('include', 'https://s1.ticketm.net/dam/a/092/c590b21f-9adf-4f96-8a2d-2bb8f216d092_1701661_TABLET_LANDSCAPE_LARGE_16_9.jpg')
         .get('.details-photo').should('have.attr', 'alt').should('equal', 'Bonobo')
         .get('.details-text').contains('BONOBO')
-        .get('.details-text').contains('Fri Oct 21 2022')
         .get('.details-text').contains('7:30 PM')
         .get('.mapid').should('exist')
     })
@@ -50,7 +55,7 @@ describe('Homepage', () => {
     it('should be able to view friends who are attending', () => {
       cy.get('.login-selection').select('Abby')
         .get('.login-button').click().wait(1000)
-        .get('.view-details-button').first().click()
+        .get('.view-details-button').last().click()
         .get('.friend-image').should('have.attr', 'src').should('equal', 'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png')
         .get('.friend').first().contains('Mayu')
     })
@@ -62,7 +67,6 @@ describe('Homepage', () => {
         .get('.dashboard-btn').click()
         .url().should("be.equal", 'http://localhost:3000/Abby')
     })
-
 
   })
 

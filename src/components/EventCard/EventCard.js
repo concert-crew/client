@@ -15,7 +15,7 @@ const EventCard = ({ name, date, venue, city, state, image, id }) => {
         backgroundImage: `url(${image})`,
         backgroundPosition: "top",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "360px 230px",
+        backgroundSize: "400px 230px",
         backgroundAttachment: "absolute",
       }}
     >
