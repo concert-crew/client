@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import EventsContainer from "../EventsContainer/EventsContainer";
 import "./FriendsDashboard.css";
