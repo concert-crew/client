@@ -17,7 +17,7 @@ const UserDashboard = ({ setCurrentUser, setHasError404, currentUser }) => {
   const toBeRendered = () => {
     if (currentUser) {
       return currentUser.events;
-    } else {
+    } else if (!loading && !error) {
       setCurrentUser(data.user);
       return data.user.events;
     }

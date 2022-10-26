@@ -13,7 +13,7 @@ const Login = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
       >
-        <option value="" disabled selected>
+        <option value="">
           Select Your User
         </option>
         <option value="Abby">Abby</option>

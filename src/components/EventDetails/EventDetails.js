@@ -1,9 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import "./EventDetails.css";
-// eslint-disable-next-line
-// import { CommentSection } from "react-comments-section";
-// import "react-comments-section/dist/index.css";
 
 const CREATE_EVENT = gql`
   mutation CreateEvent($input: CreateEventInput!) {
@@ -28,7 +25,8 @@ const CREATE_EVENT = gql`
 `;
 
 const EventDetails = ({ event, user, setCurrentUser }) => {
-  // const [data, setData] = useState(event.comments);
+  const [add, setAdd] = useState(false);
+
   const [createEvent] = useMutation(CREATE_EVENT);
   const [year, month, day] = event.date.split("-");
   const attendees = event.attendees ? (
@@ -58,6 +56,7 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
 
   const handleButtonClick = (e) => {
     e.preventDefault();
+    setAdd(true);
     setCurrentUser({
       ...user,
       events: [...user.events, event],
@@ -115,20 +114,11 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
         onClick={(e) => {
           handleButtonClick(e);
         }}
+        disabled={add}
       >
         ADD SHOW TO YOUR EVENTS
       </button>
-      {/* <div className="comments-section"> */}
-      {/* <CommentSection
-        currentUser={{
-          currentUserId: user.id,
-          currentUserImg: user.image,
-          currentUserFullName: user.name,
-        }}
-        commentData={data}
-        onSubmitAction={(newData) => setData([...data, newData])}
-      /> */}
-      {/* </div> */}
+      {add && <p>This event has been added!</p>}
     </div>
   );
 };

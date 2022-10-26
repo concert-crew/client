@@ -39,8 +39,7 @@ const App = () => {
   const [searchedEvents, setSearchedEvents] = useState([]);
   // eslint-disable-next-line
   const [hasError404, setHasError404] = useState("");
-  let { data, error, loading } = useQuery(GET_ALL_USERS);
-
+  const { data, error, loading } = useQuery(GET_ALL_USERS);
   if (loading) return <ProgressSpinner />;
   if (error) return <Status404 setHasError404={setHasError404} />;
 
@@ -57,9 +56,10 @@ const App = () => {
       foundEvent = currentUser.friendEvents.find(
         (event) => event.ticketmasterId === id
       );
+      return foundEvent;
     }
     foundEvent = foundSearch ? foundSearch : foundUser;
-    return foundEvent 
+    return foundEvent;
   };
 
   const findFriends = () => {
