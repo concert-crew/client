@@ -21,7 +21,7 @@ const UserDashboard = ({ setCurrentUser, setHasError404, currentUser }) => {
       setCurrentUser(data.user);
       return data.user.events;
     }
-  };
+  }
 
   return (
     <div className="user-dash">
