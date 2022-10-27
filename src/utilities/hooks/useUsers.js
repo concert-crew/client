@@ -33,4 +33,4 @@ export const useUsers = () => {
   const { data, error, loading } = useQuery(GET_ALL_USERS);
 
   return { data, error, loading };
-};
+}
