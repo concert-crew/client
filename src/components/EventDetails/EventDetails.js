@@ -26,6 +26,7 @@ const CREATE_EVENT = gql`
 
 const EventDetails = ({ event, user, setCurrentUser }) => {
   const [add, setAdd] = useState(false);
+console.log(event);
 
   const [createEvent] = useMutation(CREATE_EVENT);
   const [year, month, day] = event.date.split("-");

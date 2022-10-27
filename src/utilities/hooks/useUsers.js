@@ -18,6 +18,10 @@ const GET_ALL_USERS = gql`
         address
         longitude
         latitude
+        attendees{
+          image
+          name
+        }
       }
     }
   }
