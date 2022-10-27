@@ -59,9 +59,8 @@ const App = () => {
     <main className="App">
       <Header
         user={currentUser}
-        signOut={setCurrentUser}
-        findFriends={findFriends}
         setCurrentUser={setCurrentUser}
+        findFriends={findFriends}
         setHasError404={setHasError404}
       />
       <Switch>

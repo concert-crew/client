@@ -6,7 +6,7 @@ import viewFriends from "../../images/friends_1.svg";
 import userIcon from "../../images/user-icon.svg";
 import { SpinLogo } from "../SpinLogo/SpinLogo";
 
-const Header = ({ user, signOut, findFriends }) => {
+const Header = ({ user, setCurrentUser, findFriends }) => {
   const button = user && (
     <div className="header-login-container">
       <Link to={`/${user.name}`}>
@@ -30,13 +30,8 @@ const Header = ({ user, signOut, findFriends }) => {
         </div>
       </Link>
       <Link to="/">
-        <div className="icon-and-text">
-          <img
-            className="logout-btn"
-            alt="logout button"
-            src={logout}
-            onClick={() => signOut("")}
-          />
+        <div className="icon-and-text" onClick={() => setCurrentUser('')}>
+          <img className="logout-btn" alt="logout button" src={logout} />
           <h3 className="nav-bar-text">Logout</h3>
         </div>
       </Link>
