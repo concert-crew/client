@@ -84,8 +84,7 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
   //       );
   //     }
   //   });
-  // };
-
+  // }
   return (
     <div className="details-page">
       <div className="event-details-container">
