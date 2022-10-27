@@ -49,7 +49,6 @@ npm install
 npm start
 ```
 - [Deployed application](https://concert-crew.herokuapp.com/)
-- [Deployed API](https://concert-crew-be.herokuapp.com/graphql)
 
 ## Organizational Resources
 - [github project board](https://github.com/orgs/concert-crew/projects/1)
