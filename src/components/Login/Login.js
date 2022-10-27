@@ -13,14 +13,14 @@ const Login = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
       >
-        <option value="">
-          Select Your User
-        </option>
+        <option value="">Select Your User</option>
         <option value="Abby">Abby</option>
         <option value="Chantal">Chantal</option>
         <option value="John">John</option>
         <option value="Mayu">Mayu</option>
         <option value="Shirley">Shirley</option>
+        <option value="Josh">Josh</option>
+        <option value="Rue">Rue</option>
       </select>
       <Link to={`/${name}`}>
         <button className="login-button">LOG IN</button>
