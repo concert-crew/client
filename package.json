@@ -2,7 +2,7 @@
   "name": "concert-crew",
   "version": "0.1.0",
   "private": true,
-    "engines": {
+  "engines": {
     "node": "16.14.2"
   },
   "dependencies": {
@@ -44,6 +44,8 @@
     ]
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.0",
+    "babel-plugin-istanbul": "^6.1.1",
     "cypress": "^10.10.0"
   }
 }
