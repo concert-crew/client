@@ -61,3 +61,13 @@
 .pinkLogo:active {
   transform: scale(3);
 }
+
+
+@media screen and (max-width:414px) {
+ .pinkLogo{
+ height: 3rem;
+ margin-left: 2rem;
+ margin-right: -1.5rem;
+ }
+   
+}

@@ -38,8 +38,6 @@ const Status404 = () => {
   return (
     <Status code={404}>
       <>
-      <Header
-      className="four-oh-four-header" />
         <div className="error-container">
           <div className="logo-wrapper">
             <Link to="/">
