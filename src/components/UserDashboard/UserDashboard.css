@@ -13,6 +13,16 @@
 
 /* mobile */
 @media (min-width: 320px) and (max-width: 989px) {
+  
+  .user-dash {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: none;
+  }
+  
   .upcoming-shows-title {
     margin-top: 3rem;
     text-align: center;
