@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./SearchForm.css";
 import EventsContainer from "../EventsContainer/EventsContainer";
 import { fetchEvent } from "../../utilities/fetchEvent";
+
+
 const SearchForm = ({ setSearchedEvents }) => {
   const [artistName, setArtistName] = useState("");
   const [results, setResults] = useState([]);

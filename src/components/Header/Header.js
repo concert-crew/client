@@ -9,7 +9,7 @@ import { SpinLogo } from "../SpinLogo/SpinLogo";
 const Header = ({ user, setCurrentUser, findFriends }) => {
   const button = user && (
     <div className="header-login-container">
-      <Link to={`/${user.name}`}>
+      <Link className="link-wrapper" to={`/${user.name}`}>
         <div className="icon-and-text">
           <img
             className="dashboard-btn"
@@ -19,7 +19,7 @@ const Header = ({ user, setCurrentUser, findFriends }) => {
           <h3 className="nav-bar-text">Back to Dashboard</h3>
         </div>
       </Link>
-      <Link to={`/${user.name}/friends`}>
+      <Link className="link-wrapper" to={`/${user.name}/friends`}>
         <div className="icon-and-text" onClick={() => findFriends()}>
           <img
             className="view-friends-btn"
@@ -29,7 +29,7 @@ const Header = ({ user, setCurrentUser, findFriends }) => {
           <h3 className="nav-bar-text">View Friends Upcoming Shows</h3>
         </div>
       </Link>
-      <Link to="/">
+      <Link className="link-wrapper" to="/">
         <div className="icon-and-text" onClick={() => setCurrentUser('')}>
           <img className="logout-btn" alt="logout button" src={logout} />
           <h3 className="nav-bar-text">Logout</h3>

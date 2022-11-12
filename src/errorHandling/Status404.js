@@ -6,6 +6,7 @@ import { gsap } from "gsap/gsap-core";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin.js";
 import { PixiPlugin } from "gsap/PixiPlugin.js";
 import { Link } from "react-router-dom";
+import Header from "../components/Header/Header";
 
 gsap.registerPlugin(PixiPlugin, MotionPathPlugin);
 
@@ -37,6 +38,8 @@ const Status404 = () => {
   return (
     <Status code={404}>
       <>
+      <Header
+      className="four-oh-four-header" />
         <div className="error-container">
           <div className="logo-wrapper">
             <Link to="/">
