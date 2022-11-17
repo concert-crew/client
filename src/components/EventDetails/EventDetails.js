@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
+import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 import "./EventDetails.css";
 
 const CREATE_EVENT = gql`
@@ -26,8 +27,11 @@ const CREATE_EVENT = gql`
 
 const EventDetails = ({ event, user, setCurrentUser }) => {
   const [add, setAdd] = useState(false);
-
   const [createEvent] = useMutation(CREATE_EVENT);
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyC2YatgVbP7Kowv1buKPoKE-m4o4A3_Uow",
+  });
+
   const [year, month, day] = event.date.split("-");
   const attendees = event.attendees ? (
     event.attendees.map((attendee) => (
@@ -85,6 +89,9 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
   //     }
   //   });
   // }
+
+  if (!isLoaded) return <div>LOADING....</div>;
+
   return (
     <div className="details-page">
       <div className="event-details-container">
@@ -107,13 +114,21 @@ const EventDetails = ({ event, user, setCurrentUser }) => {
           </p>
           <br></br>
 
-          <iframe
-            src={`https://embed.waze.com/iframe?zoom=10&lat=${event.latitude}&lon=${event.longitude}&pin=1`}
-            width="100%"
-            height="250"
-            title="waze"
-            className="mapid"
-          ></iframe>
+          <GoogleMap
+            zoom={15}
+            center={{
+              lat: parseFloat(event.latitude),
+              lng: parseFloat(event.longitude),
+            }}
+            mapContainerClassName="map-container"
+          >
+            <Marker
+              position={{
+                lat: parseFloat(event.latitude),
+                lng: parseFloat(event.longitude),
+              }}
+            />
+          </GoogleMap>
           <br></br>
           <br></br>
           <a href={event.buyTicketsUrl} target="_blank" rel="noreferrer">
