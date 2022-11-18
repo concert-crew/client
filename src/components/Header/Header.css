@@ -120,9 +120,8 @@ align-items: center;
 @media (min-width: 320px) and (max-width: 414px) {
     h1 {
         font-weight: 200;
-        /* margin: 3vh 1vw; */
         margin-left: 1rem;
-        margin-right: 1rem;
+        margin-right: 2rem;
         font-size: .8rem;
     }
     .nav-bar-text{
@@ -137,8 +136,8 @@ align-items: center;
         display: flex;
         height: 80%;
         width: 100px;
-        align-items: center;
-        justify-content: space-between;
+        /* align-items: center; */
+        /* justify-content: space-between; */
         /* flex-direction: column; */
         margin-left: 0;
     }
