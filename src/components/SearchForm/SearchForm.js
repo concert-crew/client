@@ -2,22 +2,24 @@ import React, { useState } from "react";
 import "./SearchForm.css";
 import EventsContainer from "../EventsContainer/EventsContainer";
 import { fetchEvent } from "../../utilities/fetchEvent";
-import Switch from "@mui/material/Switch";
+
 
 const SearchForm = ({ setSearchedEvents }) => {
-  const [input, setInput] = useState("");
+  const [keyword, setKeyword] = useState("");
+  const [city, setCity] = useState("");
   const [results, setResults] = useState([]);
   const [message, setMessage] = useState("Search for an upcoming show!");
-  const [query, setQuery] = useState("artist");
+
 
   const handleChange = (e) => {
-    setInput(e.target.value);
+     const {name, value} = e.target 
+     name === "artist" ? setKeyword(value) : setCity(value)
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-    input
-      ? fetchEvent(query, input).then((data) => {
+    keyword || city
+      ? fetchEvent(keyword, city).then((data) => {
           if (!data.errors) {
             setResults(data.data.events);
             setSearchedEvents(data.data.events);
@@ -27,13 +29,12 @@ const SearchForm = ({ setSearchedEvents }) => {
             setResults([]);
           }
         })
-      : setMessage("Please type in an artist");
-    setInput("");
+      : setMessage("Please type in an artist or city");
+    setKeyword("");
+    setCity("");
+
   };
 
-  const handleToggle = () => {
-    query === "artist" ? setQuery("city") : setQuery("artist");
-  };
 
   const result = results.length ? <EventsContainer events={results} /> : null;
 
@@ -43,20 +44,22 @@ const SearchForm = ({ setSearchedEvents }) => {
         <div>
           <input
             type="text"
-            placeholder={`Search by ${query}...`}
-            name="artist-name"
-            value={input}
+            placeholder={`artist...`}
+            name="artist"
+            value={keyword}
+            onChange={(e) => handleChange(e)}
+          />
+           <input
+            type="text"
+            placeholder={`city...`}
+            name="city"
+            value={city}
             onChange={(e) => handleChange(e)}
           />
           <button className="search-btn" onClick={(e) => handleClick(e)}>
             {" "}
             SEARCH{" "}
           </button>
-        </div>
-        <div className="switch">
-          <p>Artist</p>
-          <Switch onClick={handleToggle} />
-          <p>City</p>
         </div>
       </form>
       <div className="search-results-container">
