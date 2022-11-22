@@ -20,6 +20,7 @@ const SearchForm = ({ setSearchedEvents }) => {
     e.preventDefault();
     keyword || city
       ? fetchEvent(keyword, city).then((data) => {
+        console.log(23, keyword, city)
           if (!data.errors) {
             setResults(data.data.events);
             setSearchedEvents(data.data.events);
