@@ -2,14 +2,20 @@
   "name": "concert-crew",
   "version": "0.1.0",
   "private": true,
-    "engines": {
+  "engines": {
     "node": "16.14.2"
   },
   "dependencies": {
     "@apollo/client": "^3.7.0",
+    "@cypress/instrument-cra": "^1.4.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.14",
+    "@react-google-maps/api": "^2.17.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "google-map-react": "^2.2.0",
     "graphql": "^16.6.0",
     "gsap": "^3.11.3",
     "react": "^18.2.0",
@@ -20,7 +26,7 @@
   },
   "scripts": {
     "cypress": "cypress open",
-    "start": "react-scripts start",
+    "start": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.0",
     "cypress": "^10.10.0"
   }
 }
