@@ -3,24 +3,21 @@ import "./SearchForm.css";
 import EventsContainer from "../EventsContainer/EventsContainer";
 import { fetchEvent } from "../../utilities/fetchEvent";
 
-
 const SearchForm = ({ setSearchedEvents }) => {
   const [keyword, setKeyword] = useState("");
   const [city, setCity] = useState("");
   const [results, setResults] = useState([]);
   const [message, setMessage] = useState("Search for an upcoming show!");
 
-
   const handleChange = (e) => {
-     const {name, value} = e.target 
-     name === "artist" ? setKeyword(value) : setCity(value)
+    const { name, value } = e.target;
+    name === "artist" ? setKeyword(value) : setCity(value);
   };
 
   const handleClick = (e) => {
     e.preventDefault();
     keyword || city
       ? fetchEvent(keyword, city).then((data) => {
-        console.log(23, keyword, city)
           if (!data.errors) {
             setResults(data.data.events);
             setSearchedEvents(data.data.events);
@@ -33,9 +30,7 @@ const SearchForm = ({ setSearchedEvents }) => {
       : setMessage("Please type in an artist or city");
     setKeyword("");
     setCity("");
-
   };
-
 
   const result = results.length ? <EventsContainer events={results} /> : null;
 
@@ -50,7 +45,7 @@ const SearchForm = ({ setSearchedEvents }) => {
             value={keyword}
             onChange={(e) => handleChange(e)}
           />
-           <input
+          <input
             type="text"
             placeholder={`city...`}
             name="city"
