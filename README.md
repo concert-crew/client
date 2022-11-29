@@ -1,4 +1,4 @@
-# Concert Crew
+# [Concert Crew](https://concert-crew.vercel.app/)
 
 ![Screen Shot 2022-10-26 at 3 55 44 PM](https://user-images.githubusercontent.com/100726140/198146488-f69fc6aa-4b0a-4b2c-8c8e-30eb25eb5092.png)
 
@@ -48,7 +48,7 @@ git clone git@github.com:concert-crew/client.git
 npm install
 npm start
 ```
-- [Deployed application](https://concert-crew.herokuapp.com/)
+- [Deployed application](https://concert-crew.vercel.app/)
 
 ## Organizational Resources
 - [github project board](https://github.com/orgs/concert-crew/projects/1)
