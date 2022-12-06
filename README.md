@@ -22,7 +22,6 @@
   - Router
   - Cypress
   - Vercel
-  - Heroku
   - Ruby on Rails
   - JavaScript
   - HTML
